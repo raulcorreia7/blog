@@ -32,7 +32,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <!-- <p align="center">
-  <a href="https://github.com/raulcorreia7/PersonalBlog">
+  <a href="https://github.com/raulcorreia7/personal-blog">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
@@ -41,14 +41,14 @@
   <p align="center">
     <!-- project_description
     <br />
-    <a href="https://github.com/raulcorreia7/PersonalBlog"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/raulcorreia7/personal-blog"><strong>Explore the docs »</strong></a>
     <br />
     <br /> -->
     <a href="https://www.raulcorreia.dev">View Demo</a>
     ·
-    <a href="https://github.com/raulcorreia7/PersonalBlog/issues">Report Bug</a>
+    <a href="https://github.com/raulcorreia7/personal-blog/issues">Report Bug</a>
     ·
-    <a href="https://github.com/raulcorreia7/PersonalBlog/issues">Request Feature</a>
+    <a href="https://github.com/raulcorreia7/personal-blog/issues">Request Feature</a>
   </p>
 </p>
 
@@ -117,7 +117,7 @@ This is an example of how to list things you need to use the software.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/raulcorreia7/PersonalBlog.git
+   git clone https://github.com/raulcorreia7/personal-blog.git
    ```
 2. Compiling
    ```sh
@@ -139,7 +139,7 @@ This is an example of how to list things you need to use the software.
 <!-- ROADMAP -->
 <!-- ## Roadmap
 
-See the [open issues](https://github.com/raulcorreia7/PersonalBlog/issues) for a list of proposed features (and known issues). -->
+See the [open issues](https://github.com/raulcorreia7/personal-blog/issues) for a list of proposed features (and known issues). -->
 
 
 
@@ -168,7 +168,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Raúl Correia - [@raul_correia](https://twitter.com/raul_correia) - email
 
-Project Link: [https://github.com/raulcorreia7/PersonalBlog](https://github.com/raulcorreia7/PersonalBlog)
+Project Link: [https://github.com/raulcorreia7/personal-blog](https://github.com/raulcorreia7/personal-blog)
 
 
 
@@ -186,7 +186,7 @@ Project Link: [https://github.com/raulcorreia7/PersonalBlog](https://github.com/
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/raulcorreia7/PersonalBlog/graphs/contributors
+[contributors-url]: https://github.com/raulcorreia7/personal-blog/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
 [forks-url]: https://github.com/github_username/repo/network/members
 [stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge

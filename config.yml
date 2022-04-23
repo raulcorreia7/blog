@@ -17,7 +17,7 @@ params:
   avatarURL: images/avatar_circle.png
   dateFormat: "January 2, 2006"
   since: 2019
-  commit: "https://github.com/raulcorreia7/PersonalBlog/tree/"
+  commit: "https://github.com/raulcorreia7/personal-blog/tree/"
   rtl: false
   colorScheme: auto
   hideColorSchemeToggle: false
