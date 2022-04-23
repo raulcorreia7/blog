@@ -31,10 +31,10 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<!-- <p align="center">
+<p align="center">
   <a href="https://github.com/raulcorreia7/personal-blog">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+    <img src="logo.png" alt="Logo" width="80" height="80">
+  </a>
 
   <h3 align="center">Raul Correia Personal Blog</h3>
 
