@@ -1,0 +1,125 @@
+baseURL: "https://www.raulcorreia.dev"
+title: Raul Correia
+theme: hugo-coder
+languageCode: en
+defaultContentLanguage: en
+paginate: 20
+pygmentsCodefences: true
+pygmentsCodefencesGuessSyntax : true
+enableEmoji: true
+params:
+  author: Raúl Correia
+  description: Raúl Correia personal blog
+  keywords: "blog,developer,personal"
+  info:
+    - Backend Engineer
+    - Foodie
+  avatarURL: images/avatar_circle.png
+  dateFormat: "January 2, 2006"
+  since: 2019
+  commit: "https://github.com/raulcorreia7/PersonalBlog/tree/"
+  rtl: false
+  colorScheme: auto
+  hideColorSchemeToggle: false
+  maxSeeAlsoItems: 5
+  customCSS: []
+  customSCSS: []
+  customJS: []
+  csp:
+    childsrc:
+      - "'self'"
+    fontsrc:
+      - "'self'"
+      - "https://fonts.gstatic.com"
+      - "https://cdn.jsdelivr.net/"
+    formaction:
+      - "'self'"
+    framesrc:
+      - "'self'"
+    imgsrc:
+      - "'self'"
+    objectsrc:
+      - "'none'"
+    stylesrc:
+      - "'self'"
+      - "'unsafe-inline'"
+      - "https://fonts.googleapis.com/"
+      - "https://cdn.jsdelivr.net/"
+    scriptsrc:
+      - "'self'"
+      - "'unsafe-inline'"
+      - "https://www.google-analytics.com"
+      - "https://cdn.jsdelivr.net/"
+    prefetchsrc:
+      - "'self'"
+    connectsrc:
+      - "'self'"
+      - "https://www.google-analytics.com"
+  social:
+    - name: Github
+      icon: fa fa-2x fa-github
+      weight: 1
+      url: "https://github.com/raulcorreia7/"
+    # - name: Gitlab
+    #   icon: fa fa-2x fa-gitlab
+    #   weight: 2
+    #   url: 'https://gitlab.com/johndoe/'
+    # - name: Twitter
+    #   icon: fa fa-2x fa-twitter
+    #   weight: 3
+    #   url: 'https://twitter.com/johndoe/'
+    - name: LinkedIn
+      icon: fa fa-2x fa-linkedin
+      weight: 4
+      url: "https://www.linkedin.com/in/raul-correia/"
+    # - name: Medium
+    #   icon: fa fa-2x fa-medium
+    #   weight: 5
+    #   url: 'https://medium.com/@johndoe'
+    - name: RSS
+      icon: fa fa-2x fa-rss
+      weight: 6
+      url: "https://raulcorreia.dev/index.xml"
+      rel: alternate
+      type: application/rss+xml
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+  author: authors
+languages:
+  en:
+    languageName: ":uk:"
+    menu:
+      main:
+        - name: Posts
+          weight: 2
+          url: posts/
+        - name: Categories
+          weight: 3
+          url: categories/
+        - name: About
+          weight: 10
+          url: about/
+        # - name: Contact me
+        #   weight: 5
+        #   url: contact/
+
+markup:
+  highlight:
+    anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    # hl_Lines: ""
+    # lineAnchors: ""
+    # lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    # noClasses: true
+    noHl: false
+    style: monokai
+    tabWidth: 4
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2

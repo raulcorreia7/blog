@@ -11,7 +11,7 @@ resources:
   src: "featured-image-preview.png"
 
 tags: ["helloworld", "doom"]
-categories: ["Blog", "Playable"]
+categories: ["Blog", "Game"]
 
 lightgallery: true
 

@@ -12,7 +12,7 @@ resources:
   src: "featured-image-preview.png"
 
 tags: ["docker", "ubuntu"]
-categories: ["Blog", "Automation"]
+categories: ["Automation", "Linux"]
 
 lightgallery: true
 ---
@@ -56,20 +56,20 @@ So the workaround is simply to use a the **test** branch of the repository.
 {{< /highlight >}}
 
 
-{{< admonition type=info title="Info" open=true >}}
+{{< notice info >}}
 
 I believe if you are using a **non-LTS** version of Ubuntu, you want fresher or nearer rolling-release software update, so using this repository shouldn't be a issue. I'm not responsible for any faults, errors or breaks.
 
-{{< /admonition >}}
+{{< /notice >}}
 
 ### Automated Script 🔨
 So I came up with a simple script to setup and automate everything for you.
 
-{{< admonition type=warning title="Warning" open=true >}}
+{{< notice warning >}}
 
 This is fully automated, there is no end user confirmation whatsoever.
 
-{{< /admonition >}}
+{{< /notice >}}
 
 
 {{< highlight bash >}}
