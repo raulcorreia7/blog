@@ -185,15 +185,15 @@ LinkedIn: [https://github.com/raulcorreia7/personal-blog](https://github.com/rau
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/raulcorreia7/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/raulcorreia7/personal-blog.svg?style=for-the-badge
 [contributors-url]: https://github.com/raulcorreia7/personal-blog/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/raulcorreia7/repo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/raulcorreia7/personal-blog.svg?style=for-the-badge
 [forks-url]: https://github.com/raulcorreia7/personal-blog/network/members
-[stars-shield]: https://img.shields.io/github/stars/raulcorreia7/repo.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/raulcorreia7/personal-blog.svg?style=for-the-badge
 [stars-url]: https://github.com/raulcorreia7/personal-blog/stargazers
-[issues-shield]: https://img.shields.io/github/issues/raulcorreia7/repo.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/raulcorreia7/personal-blog.svg?style=for-the-badge
 [issues-url]: https://github.com/raulcorreia7/personal-blog/issues
-[license-shield]: https://img.shields.io/github/license/raulcorreia7/repo.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/raulcorreia7/personal-blog.svg?style=for-the-badge
 [license-url]: https://github.com/raulcorreia7/personal-blog/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/raulcorreia7
