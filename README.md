@@ -87,10 +87,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
-
+This repository is my personal blog project. It rose out of the need to write about my profession and share with the world.
 
 ### Built With
 
@@ -108,7 +105,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software.
+To get you started, be sure you have the following software:
 * hugo
 * make
 * git
@@ -128,10 +125,13 @@ This is an example of how to list things you need to use the software.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
+* See all available make commands
+    ```sh
+      make help
+    ```
 * See changes realtime
     ```sh
-        make watch
+      make watch
     ```
 
 
@@ -166,9 +166,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Raúl Correia - [@raul_correia](https://twitter.com/raul_correia) - email
+Raúl Correia - [@raul_correia](https://twitter.com/raul_correia)
 
-Project Link: [https://github.com/raulcorreia7/personal-blog](https://github.com/raulcorreia7/personal-blog)
+LinkedIn: [https://github.com/raulcorreia7/personal-blog](https://github.com/raulcorreia7/personal-blog)
 
 
 
@@ -176,8 +176,8 @@ Project Link: [https://github.com/raulcorreia7/personal-blog](https://github.com
 ## Acknowledgements
 
 * [Luiz de Prá](https://github.com/luizdepra) for building the awesome theme I'm using
-* []()
-* []()
+<!-- * []()
+* []() -->
 
 
 
@@ -185,15 +185,15 @@ Project Link: [https://github.com/raulcorreia7/personal-blog](https://github.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/raulcorreia7/repo.svg?style=for-the-badge
 [contributors-url]: https://github.com/raulcorreia7/personal-blog/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/raulcorreia7/repo/blob/master/LICENSE.txt
+[forks-shield]: https://img.shields.io/github/forks/raulcorreia7/repo.svg?style=for-the-badge
+[forks-url]: https://github.com/raulcorreia7/personal-blog/network/members
+[stars-shield]: https://img.shields.io/github/stars/raulcorreia7/repo.svg?style=for-the-badge
+[stars-url]: https://github.com/raulcorreia7/personal-blog/stargazers
+[issues-shield]: https://img.shields.io/github/issues/raulcorreia7/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/raulcorreia7/personal-blog/issues
+[license-shield]: https://img.shields.io/github/license/raulcorreia7/repo.svg?style=for-the-badge
+[license-url]: https://github.com/raulcorreia7/personal-blog/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://linkedin.com/in/raulcorreia7
