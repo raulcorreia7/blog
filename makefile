@@ -1,4 +1,4 @@
-.PHONY: all clean watch public submodules
+.PHONY: all clean watch public dependencies
 
 HUGO  := hugo
 FLAGS := --gc --minify
@@ -31,5 +31,5 @@ watch: clean
 public:
 	$(HUGO) $(FLAGS) -d $(DEST)
 
-submodules:
+dependencies:
 	$(GIT) submodule update --recursive --init
