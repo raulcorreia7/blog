@@ -1,7 +1,8 @@
 <style>
 
 </style>
-<script src="https://js-dos.com/6.22/current/js-dos.js"></script>
+
+<script src="/js/jsdos6/js-dos.js"></script>
 <canvas id="dosbox">
     <style>
         canvas,
@@ -15,9 +16,9 @@
 <script>
     var game_url = "/game/Doom.zip";
     Dos(document.getElementById("dosbox"), {
-        wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
+        wdosboxUrl: "/js/jsdos6/wdosbox.js",
         cycles: "auto",
-        autolock: true
+        autolock: true,
     }).ready(function (fs, main) {
         fs.extract(game_url).then(function () {
             main(["-c", "MIXER MASTER 45:45", "-c", "DOOM.EXE"]).then(function (ci) {

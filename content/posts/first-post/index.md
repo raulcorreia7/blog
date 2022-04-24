@@ -21,15 +21,14 @@ toc:
 
 ## Hello world!
 
-This is my first post on my new created blog.
+This is my first post on my new created blog, how exciting!
 
-I'm a Software Engineer that moved countries in a mist of a pandemic.
-Here i share my ideas, projects and interests.
-To celebrate i leave my favorite game of all time as a easter egg.
+I'm a Software Engineer that moved across europe. Here I share my ideas, projects and interests.
+To celebrate I leave my favorite game of all time as a [easter egg](https://dos.zone/doom-dec-1993/).
 
 <!--more-->
-## Easter Egg
-{{< doomjs >}}
+<!-- ## Easter Egg -->
+<!-- {{/*< doomjs >*/}} -->
 
 Thanks,
 

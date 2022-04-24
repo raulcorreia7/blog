@@ -5,6 +5,7 @@ FLAGS := --gc --minify
 DEST  := public
 PORT  := 1313
 GIT	  := git
+DEV_FLAGS := --buildFuture --buildDrafts --buildExpired
 # Run all targets
 all: public
 
@@ -26,10 +27,12 @@ clean:
 	rm -rf public/
 
 watch: clean
-	$(HUGO) server -w
+	$(HUGO) server -w $(DEV_FLAGS)
 
 public:
 	$(HUGO) $(FLAGS) -d $(DEST)
 
 dependencies:
 	$(GIT) submodule update --recursive --init
+
+init : clean dependencies
