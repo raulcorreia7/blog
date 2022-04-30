@@ -12,6 +12,7 @@ categories = ["blog", "open source"]
 externalLink = ""
 series = ["open sourcing blog"]
 mermaid = true
+asciinema = true
 +++
 
 ## Intro
@@ -22,9 +23,9 @@ Why suddenly posting such about mundane thing?
 
 Well, I believe the technical steps taken to develop this blog are very interesting for certain use cases, personal development, documentation for Software Projects, or just tinkering.
 
-Through out this series of posts I will guide the reader on how to setup  your own Hugo Blog. We will iterate in many different solutions throughout the series.
+Through out this series of posts I will guide the reader on how to setup your own Hugo Blog. We will iterate in many different solutions throughout the series.
 
-This post in will focus on how to get you started.
+This post in will focus on how to get you started, setup some basic plumbing and understand Hugo.
 
 ## Resources
 This is the general resources needed to have to be able to finish this series of posts.
@@ -37,18 +38,17 @@ This is the general resources needed to have to be able to finish this series of
 
 ### Recommended reading
 * [Hugo Quickstart](https://gohugo.io/getting-started/quick-start/)
-* [Github Actions Quickstart](https://docs.github.com/en/actions/quickstart)
 
 ### Tools
 * Git
 * Visual Studio Code
-* Github and Github Actions
+* Github
 * [Makefile](https://github.com/raulcorreia7/personal-blog/blob/master/makefile)
 * [Hugo](https://gohugo.io/) (extended)
 * [hugo-coder](https://github.com/luizdepra/hugo-coder) theme
 
 ## Development
-
+It is highly recommended you go through [Hugo QuickStart](#recommended-reading) so you understand what we are reproducing here.
 ### Summarized Steps
 * Create repository
 * Create a new project with hugo inside the repository
@@ -73,23 +73,27 @@ graph LR;
 {{< /mermaid >}}
 
 
-
 ## Steps
 
-It is highly recommended you go through [Hugo QuickStart](#recommended-reading) so you understand what we are reproducing here.
 
 ### Create Repository
 Simply chose your version control provider, in this case I chose **Github**. For the sake of completeness, here is a link to [how to create a repository in github.](https://docs.github.com/en/get-started/quickstart/create-a-repo)
 
-### Create a Project inside the repository
-To create a Hugo Website, you need to browse inside your repository and create a new website in the current directory by running the command : ```hugo new site .```
+### Create a Project inside the Repository
+To create a Hugo Website, you need to browse inside your repository and create a new website in the current directory by running the command :
+```shell
+hugo new site .
+```
+
+{{< asciinema key="hugo-new-site" rows="15" preload="1" autoplay="1" loop="1">}}
+
 
 ### Adding a theme as a submodule
 
 Create a folder where you wish to save your themes, in my case I'm creating `themes/`
 Then, add a submodule pointing to themes as your folder where to clone to as such :
 ```shell
-# Add submodule
+# Add original hugo-coder submodule
 git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
 # Initialize all submodules and clone them recursively
 git submodule update --init --recursive
