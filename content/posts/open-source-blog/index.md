@@ -43,7 +43,6 @@ This is the general resources needed to have to be able to finish this series of
 * Git
 * Visual Studio Code
 * Github
-* [Makefile](https://github.com/raulcorreia7/personal-blog/blob/master/makefile)
 * [Hugo](https://gohugo.io/) (extended)
 * [hugo-coder](https://github.com/luizdepra/hugo-coder) theme
 
@@ -68,8 +67,8 @@ graph LR;
     style deploy fill:#0f1
 
     source[Source Code]-- edit -->repository[Website];
-    repository -- $ make all --> build[Build Website];
-    build -- upload to Github Pages --> deploy[Github Pages];
+    repository -- $ hugo --> build[Build Website];
+    build -- deploy artifacts to gh-branch --> deploy[Github Pages];
 {{< /mermaid >}}
 
 
@@ -115,7 +114,10 @@ hugo -w
 Editing our configuration file is one of the hardest tasks to configure `Hugo` accordingly with your `theme`.
 My recommendation to have a configuration file properly set is to :
 * If using no theme, read the base config file.
-* If we are using a theme, copy it from the `theme/your-theme` and find the corresponding configuration file and copy to where hugo website root is located. 
+* If we are using a theme, copy it from the `theme/your-theme` and find the corresponding configuration file and copy to where hugo website root is located.
+* Depending on the repository name, define `baseURL` as:
+    * if public pages repository`<your_username>.github.io`, use that as your `baseURL`
+    * else if it's a personal repo, use `<your_username>.github.io/<your_reponame>`
 
 {{< figure src="copy_config.png" caption="Copying a config.toml from the example theme to root folder">}}
 After finding our desired config file, edit it as you please.
@@ -131,19 +133,19 @@ This will create a markdown post. Let's open favorite text editor and the create
 
 ### Final build and Deploy
 
-To be able to deploy to Github, we need to enable `Pages`. Read the following [tutorial](https://docs.github.com/en/pages/quickstart)
+To be able to deploy to Github, we need to enable `Pages`. 
+Read the following [tutorial](https://docs.github.com/en/pages/quickstart) and make sure you [edited configuration file properly](#edit-configuration-file)
 
 Create a `gh-pages` branch, save changes, and checkout to it.
 In here, we need to delete everything related to source code and just have the website itself.
 In the root of your project delete `.git/index` removing all tracked files and run `git clean -fdx` to let git clean everything that is not tracked.
 
 
-Here is the command:
 ```sh
 rm .git/index
 git clean -fdx
 ```
-`Commit` and `Push` these changes to `gh-pages` branch.
+`commit` and `push` these changes to `gh-pages` branch.
 
 After all the changes are pushed, go back to `Pages` Settings in the Repository, and point the `Source` to `gh-pages` like the following image.
 
@@ -155,13 +157,14 @@ Switch to `gh-pages` branch and paste the content of the folder in the root fold
 
 After this we should wait a few minutes. We should be able to access our new blog by the website provided in the `Pages` section.
 
+Bonus: If you have one custom domain, it's in this page that you can change it.
 
 ## Conclusion
 
 With this guide, you should have your blog up and running, understand a little bit more on how Hugo works and on how to setup a theme.
+There will be a follow-up post on how to create your own pipeline for automated deployment.
 
 If you wish to use my blog as a template, see [Sources](#sources)
-
 ## Sources
 * [personal blog source code](https://github.com/raulcorreia7/personal-blog)
 * [my theme source code](https://github.com/raulcorreia7/hugo-coder)
