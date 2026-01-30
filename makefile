@@ -30,7 +30,11 @@ watch: clean
 	$(HUGO) server -w $(DEV_FLAGS)
 
 dev:
-	$(HUGO) server $(DEV_FLAGS) --port $(PORT)
+	@echo "Starting Hugo dev server on http://localhost:$(PORT)"
+	$(HUGO) server $(DEV_FLAGS) --port $(PORT) &
+	@sleep 2
+	@echo "Opening browser..."
+	@xdg-open http://localhost:$(PORT) || open http://localhost:$(PORT) || start http://localhost:$(PORT)
 
 public:
 	$(HUGO) $(FLAGS) -d $(DEST)
