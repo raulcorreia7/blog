@@ -4,3 +4,16 @@ autoSwitchAppearance = true
 enableSearch = false
 enableCodeCopy = true
 enableStyledScrollbar = true
+
+[params.author]
+name = "Raúl Correia"
+email = "your.email@example.com"
+image = "img/avatar_circle.png"
+imageQuality = 96
+headline = "Backend Engineer, Foodie"
+bio = "Raúl Correia personal blog"
+
+[params.author.links]
+github = "https://github.com/raulcorreia7/"
+linkedin = "https://www.linkedin.com/in/raul-correia/"
+rss = "https://raulcorreia.dev/index.xml"
