@@ -1,4 +1,4 @@
-.PHONY: all clean watch public dependencies
+.PHONY: all clean watch dev public dependencies
 
 HUGO  := hugo
 FLAGS := --gc --minify
@@ -19,6 +19,7 @@ help:
 	@echo "New article:"
 	@echo "  hugo new post/the_title"
 	@echo "  $$EDITOR content/post/the_title.md"
+	@echo "  make dev"
 	@echo "  make watch"
 	@echo "  open "
 
@@ -27,6 +28,9 @@ clean:
 
 watch: clean
 	$(HUGO) server -w $(DEV_FLAGS)
+
+dev:
+	$(HUGO) server $(DEV_FLAGS) --port $(PORT)
 
 public:
 	$(HUGO) $(FLAGS) -d $(DEST)
