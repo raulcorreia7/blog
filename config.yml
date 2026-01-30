@@ -1,6 +1,6 @@
 baseURL: "https://www.raulcorreia.dev"
 title: Raul Correia
-theme: hugo-coder
+theme: PaperMod
 languageCode: en
 defaultContentLanguage: en
 paginate: 20
