@@ -119,7 +119,7 @@ My recommendation to have a configuration file properly set is to :
     * if public pages repository`<your_username>.github.io`, use that as your `baseURL`
     * else if it's a personal repo, use `<your_username>.github.io/<your_reponame>`
 
-{{< figure src="copy_config.png" caption="Copying a config.toml from the example theme to root folder">}}
+<!-- {{< figure src="copy_config.png" caption="Copying a config.toml from the example theme to root folder">}} -->
 After finding our desired config file, edit it as you please.
 Finally, build Hugo to validate everything is ok.
 
