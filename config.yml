@@ -1,97 +1,20 @@
 baseURL: "https://raulcorreia.dev"
 title: Raul Correia
-theme: papermod
+theme: risotto
 languageCode: en
 defaultContentLanguage: en
 pagination:
   pagerSize: 20
-pygmentsCodefences: true
-pygmentsCodefencesGuessSyntax: true
-enableEmoji: true
+
 params:
-  author: Raúl Correia
-  description: Raúl Correia personal blog
-  keywords:
-    - blog
-    - developer
-    - personal
-  info:
-    - Backend Engineer
-    - Foodie
-  avatarURL: images/avatar_circle.png
   dateFormat: "January 2, 2006"
   rtl: false
   customCSS: []
   customSCSS: []
   customJS: []
   mermaid: true
-  social:
-    - name: Github
-      icon: fa fa-2x fa-github
-      weight: 1
-      url: "https://github.com/raulcorreia7/"
-    # - name: Gitlab
-    #   icon: fa fa-2x fa-gitlab
-    #   weight: 2
-    #   url: 'https://gitlab.com/johndoe/'
-    # - name: Twitter
-    #   icon: fa fa-2x fa-twitter
-    #   weight: 3
-    #   url: 'https://twitter.com/johndoe/'
-    - name: LinkedIn
-      icon: fa fa-2x fa-linkedin
-      weight: 4
-      url: "https://www.linkedin.com/in/raul-correia/"
-    # - name: Medium
-    #   icon: fa fa-2x fa-medium
-    #   weight: 5
-    #   url: 'https://medium.com/@johndoe'
-    - name: RSS
-      icon: fa fa-2x fa-rss
-      weight: 6
-      url: "https://raulcorreia.dev/index.xml"
-      rel: alternate
-      type: application/rss+xml
-taxonomies:
-  category: categories
-  tag: tags
-languages:
-  en:
-    languageName: ":uk:"
-    menu:
-      main:
-        - name: Posts
-          weight: 2
-          url: posts/
-        - name: Categories
-          weight: 3
-          url: categories/
-        - name: Tags
-          weight: 4
-          url: tags/
-        - name: About
-          weight: 10
-          url: about/
-markup:
-  highlight:
-    anchorLineNos: true
-    codeFences: true
-    guessSyntax: true
-    # hl_Lines: ""
-    # lineAnchors: ""
-    # lineNoStart: 1
-    lineNos: true
-    lineNumbersInTable: true
-    # noClasses: true
-    noHl: false
-    style: monokai
-    tabWidth: 4
-  tableOfContents:
-    endLevel: 3
-    ordered: false
-    startLevel: 2
-  goldmark:
-    renderer:
-        hardWraps: true
-        unsafe: true
-        xhtml: true
+
+outputs:
+  home:
+    - HTML
+    - RSS

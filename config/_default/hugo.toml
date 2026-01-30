@@ -1,0 +1,10 @@
+baseURL = "https://raulcorreia.dev"
+languageCode = "en"
+defaultContentLanguage = "en"
+theme = "risotto"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[pagination]
+  pagerSize = 20
