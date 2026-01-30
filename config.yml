@@ -1,16 +1,20 @@
 baseURL: "https://raulcorreia.dev"
 title: Raul Correia
-theme: PaperMod
+theme: papermod
 languageCode: en
 defaultContentLanguage: en
-paginate: 20
+pagination:
+  pagerSize: 20
 pygmentsCodefences: true
 pygmentsCodefencesGuessSyntax: true
 enableEmoji: true
 params:
   author: Raúl Correia
   description: Raúl Correia personal blog
-  keywords: "blog,developer,personal"
+  keywords:
+    - blog
+    - developer
+    - personal
   info:
     - Backend Engineer
     - Foodie
