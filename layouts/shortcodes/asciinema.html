@@ -1,0 +1,26 @@
+{{ if .Get "preload" }}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
+    preload: true,
+    rows: {{ .Get "rows" | default 24 }},
+    cols: {{ .Get "cols" | default 80 }},
+    autoplay: {{ .Get "autoplay" | default false }},
+    loop: {{ .Get "loop" | default false }}
+  });
+});
+</script>
+{{ else }}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
+    rows: {{ .Get "rows" | default 24 }},
+    cols: {{ .Get "cols" | default 80 }},
+    autoplay: {{ .Get "autoplay" | default false }},
+    loop: {{ .Get "loop" | default false }}
+  });
+});
+</script>
+{{ end }}
+
+<div id="{{ .Get "key" }}"></div>

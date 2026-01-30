@@ -92,7 +92,7 @@ This repository is my personal blog project. It rose out of the need to write ab
 ### Built With
 
 * [Hugo](https://gohugo.io/)
-* [Hugo-Coder theme](https://github.com/luizdepra/hugo-coder)
+* [PaperMod theme](https://github.com/adityatelange/hugo-PaperMod)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 
@@ -175,7 +175,7 @@ LinkedIn: [https://github.com/raulcorreia7/personal-blog](https://github.com/rau
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [Luiz de Prá](https://github.com/luizdepra) for building the awesome theme I'm using
+* [Aditya Telange](https://github.com/adityatelange) for building the awesome theme I'm using
 <!-- * []()
 * []() -->
 

@@ -10,7 +10,6 @@ DEV_FLAGS := --buildFuture --buildDrafts --buildExpired
 all: public
 
 help:
-	help:
 	@echo "Usage: make <command>"
 	@echo "  all     Builds the blog and minifies it"
 	@echo "  clean   Cleans all build files"
