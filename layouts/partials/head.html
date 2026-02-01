@@ -32,7 +32,7 @@
 {{ end }}
 
 <!-- Asciinema Player -->
-<script src="https://asciinema.org/a/asciinema-player.min.js"></script>
+<script src="{{ "js/asciinema-player.js" | relURL }}"></script>
 
 <!-- OG meta -->
 <meta property="og:title" content="{{ with .Title }}{{ . }} &ndash; {{end}}{{ .Site.Title }}" />
