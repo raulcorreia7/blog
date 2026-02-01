@@ -44,7 +44,7 @@
     <a href="https://github.com/raulcorreia7/personal-blog"><strong>Explore the docs »</strong></a>
     <br />
     <br /> -->
-    <a href="https://www.raulcorreia.dev">View Demo</a>
+    <a href="https://www.raulcorreia7.dev">View Demo</a>
     ·
     <a href="https://github.com/raulcorreia7/personal-blog/issues">Report Bug</a>
     ·
