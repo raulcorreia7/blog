@@ -2,7 +2,7 @@
 <div id="{{ .Get "key" }}"></div>
 <script>
 function initPlayer() {
-  if (typeof AsciinemaPlayer !== 'undefined') {
+  if (typeof AsciinemaPlayer === 'undefined') {
     setTimeout(initPlayer, 100);
   } else {
     AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
@@ -20,7 +20,7 @@ window.addEventListener('load', initPlayer);
 <div id="{{ .Get "key" }}"></div>
 <script>
 function initPlayer() {
-  if (typeof AsciinemaPlayer !== 'undefined') {
+  if (typeof AsciinemaPlayer === 'undefined') {
     setTimeout(initPlayer, 100);
   } else {
     AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
@@ -34,5 +34,3 @@ function initPlayer() {
 window.addEventListener('load', initPlayer);
 </script>
 {{ end }}
-
-<div id="{{ .Get "key" }}"></div>

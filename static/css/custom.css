@@ -128,3 +128,36 @@
         gap: 0.5rem 1rem;
     }
 }
+
+/* Notice boxes */
+.notice {
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid;
+    border-radius: 4px;
+    background-color: var(--base01);
+}
+
+.notice-content {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.notice-content p {
+    margin: 0;
+}
+
+.notice-info {
+    border-left-color: var(--base0D);
+    background-color: rgba(131, 148, 150, 0.1);
+}
+
+.notice-warning {
+    border-left-color: var(--base09);
+    background-color: rgba(203, 75, 22, 0.1);
+}
+
+.notice-error {
+    border-left-color: var(--base08);
+    background-color: rgba(211, 54, 130, 0.1);
+}
