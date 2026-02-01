@@ -74,12 +74,16 @@ outputs:
     - RSS
     - JSON
 
-# Markup & Syntax Highlighting (using highlight.js, not Chroma)
+# Chroma syntax highlighting with terminal aesthetic
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     codeFences: true
     guessSyntax: true
-    lineNos: false
-    noClasses: true
-    style: monokai
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
+    style: dracula
     tabWidth: 4
