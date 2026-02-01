@@ -16,7 +16,7 @@
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
         <li class="main-nav__item">
-            <a class="nav-main-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq ($currentPage.RelPermalink) (.URL)) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">
+            <a class="nav-main-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq ($currentPage.RelPermalink) (.URL)) }} active{{end}}" href="{{ .URL | relURL }}" title="{{ .Title }}">
                 {{ .Name }}
             </a>
         </li>
