@@ -6,7 +6,7 @@ draft: false
 lightgallery: true
 ---
 
-{{< figure src="about_image.jpg" >}}
+{{< figure src="about_image.jpg" alt="Raúl Correia profile photo" >}}
 
 &nbsp;
 
