@@ -5,7 +5,7 @@ function initPlayer() {
   if (typeof AsciinemaPlayer === 'undefined') {
     setTimeout(initPlayer, 100);
   } else {
-    AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
+    AsciinemaPlayer.create('{{ printf "casts/%s.cast" (.Get "key") | relURL }}', document.getElementById('{{ .Get "key" }}'), {
       preload: true,
       rows: {{ .Get "rows" | default 24 }},
       cols: {{ .Get "cols" | default 80 }},
@@ -23,7 +23,7 @@ function initPlayer() {
   if (typeof AsciinemaPlayer === 'undefined') {
     setTimeout(initPlayer, 100);
   } else {
-    AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
+    AsciinemaPlayer.create('{{ printf "casts/%s.cast" (.Get "key") | relURL }}', document.getElementById('{{ .Get "key" }}'), {
       rows: {{ .Get "rows" | default 24 }},
       cols: {{ .Get "cols" | default 80 }},
       autoplay: {{ .Get "autoplay" | default false }},
