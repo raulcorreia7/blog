@@ -1,11 +1,13 @@
-baseURL: "https://raulcorreia.dev"
+baseURL: "https://raulcorreia7.dev"
 title: Raul Correia
 theme: risotto
 languageCode: en
 defaultContentLanguage: en
+
 pagination:
   pagerSize: 20
 
+# Site parameters
 params:
   dateFormat: "January 2, 2006"
   rtl: false
@@ -13,8 +15,71 @@ params:
   customSCSS: []
   customJS: []
   mermaid: true
+  
+  # Theme params
+  colorScheme: "risotto"
+  defaultAppearance: "dark"
+  autoSwitchAppearance: true
+  enableSearch: false
+  enableCodeCopy: true
+  enableStyledScrollbar: true
+  
+  # Author info
+  author:
+    name: "Raúl Correia"
+    email: "your.email@example.com"
+    image: "img/avatar_circle.png"
+    imageQuality: 96
+    headline: "Backend Engineer, Foodie"
+    bio: "Raúl Correia personal blog"
+    links:
+      github: "https://github.com/raulcorreia7/"
+      linkedin: "https://www.linkedin.com/in/raul-correia/"
+      rss: "https://raulcorreia7.dev/index.xml"
 
+# Navigation menu
+menu:
+  main:
+    - name: Posts
+      pageRef: posts
+      weight: 10
+    - name: Categories
+      pageRef: categories
+      weight: 20
+    - name: Tags
+      pageRef: tags
+      weight: 30
+    - name: About
+      pageRef: about
+      weight: 40
+
+# Languages
+languages:
+  en:
+    disabled: false
+    languageCode: en
+    languageName: English
+    weight: 1
+    params:
+      displayName: EN
+      isoCode: en
+      rtl: false
+      dateFormat: "January 2, 2006"
+      description: "Raúl Correia personal blog"
+
+# Outputs
 outputs:
   home:
     - HTML
     - RSS
+    - JSON
+
+# Markup & Syntax Highlighting (using highlight.js, not Chroma)
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    noClasses: true
+    style: monokai
+    tabWidth: 4

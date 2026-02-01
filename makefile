@@ -27,14 +27,22 @@ clean:
 	rm -rf public/
 
 watch: clean
-	$(HUGO) server -w $(DEV_FLAGS)
+	@echo "Checking for existing Hugo server on port $(PORT)..."
+	@lsof -ti :$(PORT) | xargs kill -9 2>/dev/null || true
+	$(HUGO) server -w $(DEV_FLAGS) --port $(PORT) --bind 127.0.0.1
+
+stop:
+	@echo "Stopping Hugo server on port $(PORT)..."
+	@lsof -ti :$(PORT) | xargs kill -9 2>/dev/null || echo "No Hugo server found on port $(PORT)"
 
 dev:
+	@echo "Checking for existing Hugo server on port $(PORT)..."
+	@lsof -ti :$(PORT) | xargs kill -9 2>/dev/null || true
 	@echo "Starting Hugo dev server on http://localhost:$(PORT)"
-	$(HUGO) server $(DEV_FLAGS) --port $(PORT) &
+	$(HUGO) server $(DEV_FLAGS) --port $(PORT) --bind 127.0.0.1 &
 	@sleep 2
-	@echo "Opening browser..."
-	@xdg-open http://localhost:$(PORT) || open http://localhost:$(PORT) || start http://localhost:$(PORT)
+	@echo "Hugo server running at http://localhost:$(PORT)"
+	@echo "Use 'make stop' to stop the server"
 
 public:
 	$(HUGO) $(FLAGS) -d $(DEST)
