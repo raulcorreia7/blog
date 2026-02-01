@@ -17,7 +17,7 @@ asciinema = true
 
 ## Intro
 
-{{< figure src="/images/opensource-logo.png" alt="Open Source Initiative logo" >}}
+{{< figure src="images/opensource-logo.png" alt="Open Source Initiative logo" >}}
 
 Hello everyone, this is your friendly tinkerer coder writing on **How I Open Sourced my blog**. 
 Why suddenly posting such about mundane thing? 
