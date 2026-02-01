@@ -26,9 +26,28 @@ This is my first post on my new created blog, how exciting!
 I'm a Software Engineer that moved across europe. Here I share my ideas, projects and interests.
 To celebrate I leave my favorite game of all time as a [easter egg](https://dos.zone/doom-dec-1993/).
 
-<!--more-->
-<!-- ## Easter Egg -->
-<!-- {{/*< doomjs >*/}} -->
+## Simple Code Example
+
+Here's a simple example of code syntax highlighting:
+
+```python
+def hello_world():
+    print("Hello, World!")
+    return True
+
+if __name__ == "__main__":
+    hello_world()
+```
+
+## Another Language Example
+
+```javascript
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet('World'));
+```
 
 Thanks,
 
