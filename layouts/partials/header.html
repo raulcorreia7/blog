@@ -1,0 +1,26 @@
+<nav class="page__nav main-nav">
+    <div class="terminal-shell">
+        <div class="shell-header">
+            <div class="shell-prompt">
+                <span class="prompt-symbol">❯</span>
+                <span class="prompt-path">~</span>
+            </div>
+            <h1 class="page__logo">
+                <a href="{{ .Site.BaseURL }}" class="page__logo-inner">
+                    <span class="logo-text">{{ .Site.Title }}</span>
+                    <span class="cursor">▌</span>
+                </a>
+            </h1>
+        </div>
+        <ul class="nav-menu">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        <li class="main-nav__item">
+            <a class="nav-main-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq ($currentPage.Permalink) (.URL | absLangURL)) }} active{{end}}" href="{{ .URL | absLangURL }}" title="{{ .Title }}">
+                {{ .Name }}
+            </a>
+        </li>
+        {{ end }}
+        </ul>
+    </div>
+</nav>
