@@ -1,4 +1,4 @@
-baseURL: "https://raulcorreia7.dev"
+baseURL: "https://raulcorreia.dev"
 title: Raul Correia
 theme: risotto
 languageCode: en
@@ -35,7 +35,7 @@ params:
     links:
       github: "https://github.com/raulcorreia7/"
       linkedin: "https://www.linkedin.com/in/raul-correia/"
-      rss: "https://raulcorreia7.dev/index.xml"
+      rss: "https://raulcorreia.dev/index.xml"
 
 # Navigation menu
 menu:
