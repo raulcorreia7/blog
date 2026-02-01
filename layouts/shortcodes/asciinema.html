@@ -1,25 +1,37 @@
 {{ if .Get "preload" }}
+<div id="{{ .Get "key" }}"></div>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
-    preload: true,
-    rows: {{ .Get "rows" | default 24 }},
-    cols: {{ .Get "cols" | default 80 }},
-    autoplay: {{ .Get "autoplay" | default false }},
-    loop: {{ .Get "loop" | default false }}
-  });
-});
+function initPlayer() {
+  if (typeof AsciinemaPlayer !== 'undefined') {
+    setTimeout(initPlayer, 100);
+  } else {
+    AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
+      preload: true,
+      rows: {{ .Get "rows" | default 24 }},
+      cols: {{ .Get "cols" | default 80 }},
+      autoplay: {{ .Get "autoplay" | default false }},
+      loop: {{ .Get "loop" | default false }}
+    });
+  }
+}
+window.addEventListener('load', initPlayer);
 </script>
 {{ else }}
+<div id="{{ .Get "key" }}"></div>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
-    rows: {{ .Get "rows" | default 24 }},
-    cols: {{ .Get "cols" | default 80 }},
-    autoplay: {{ .Get "autoplay" | default false }},
-    loop: {{ .Get "loop" | default false }}
-  });
-});
+function initPlayer() {
+  if (typeof AsciinemaPlayer !== 'undefined') {
+    setTimeout(initPlayer, 100);
+  } else {
+    AsciinemaPlayer.create('/casts/{{ .Get "key" }}.cast', document.getElementById('{{ .Get "key" }}'), {
+      rows: {{ .Get "rows" | default 24 }},
+      cols: {{ .Get "cols" | default 80 }},
+      autoplay: {{ .Get "autoplay" | default false }},
+      loop: {{ .Get "loop" | default false }}
+    });
+  }
+}
+window.addEventListener('load', initPlayer);
 </script>
 {{ end }}
 
