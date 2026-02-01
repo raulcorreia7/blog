@@ -135,3 +135,6 @@ yarn-error.log*
 # Local drafts and notes (not for production)
 drafts/
 *.draft.md
+
+# Image optimization backups
+.image_backup/
