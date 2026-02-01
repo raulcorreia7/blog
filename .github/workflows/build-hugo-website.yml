@@ -85,7 +85,6 @@ jobs:
           # Count images after optimization
           IMAGES_AFTER=$(find ./public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) | wc -l)
           SIZE_AFTER=$(du -sh ./public | cut -f1)
-          SAVED_BYTES=$(( $(du -sb ./public | cut -f1) < $(du -sb ./public/optimized 2>/dev/null | cut -f1) || echo 0 ))
 
           echo "Images after: ${IMAGES_AFTER}"
           echo "Size after: ${SIZE_AFTER}"
