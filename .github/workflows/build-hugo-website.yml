@@ -55,7 +55,8 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2.7.0
         with:
-          args: --verbose --no-progress ./public/**/*.html
+          # Check links but exclude production domain (not deployed yet during CI)
+          args: --verbose --no-progress --exclude "https://raulcorreia7.dev" --exclude "https://www.raulcorreia7.dev" ./public/**/*.html
           fail: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
