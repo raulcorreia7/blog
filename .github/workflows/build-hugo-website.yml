@@ -37,6 +37,68 @@ jobs:
           path: ./public
           retention-days: 5
 
+  # Asset optimization job - runs on all pushes and PRs
+  optimize-assets:
+    name: Optimize Assets
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hugo-site
+          path: ./public
+
+      - name: Optimize Images
+        run: |
+          #!/bin/bash
+          set -euo pipefail
+          echo "🔧 Optimizing images..."
+
+          # Count images before optimization
+          IMAGES_BEFORE=$(find ./public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) | wc -l)
+          SIZE_BEFORE=$(du -sh ./public | cut -f1)
+          echo "Images before: ${IMAGES_BEFORE}"
+          echo "Size before: ${SIZE_BEFORE}"
+
+          # Optimize JPEG images
+          find ./public -type f \( -name "*.jpg" -o -name "*.jpeg" \) -exec mogrify \
+            -strip \
+            -quality 85 \
+            -interlace Plane \
+            {} +
+
+          # Optimize PNG images
+          find ./public -type f -name "*.png" -exec mogrify \
+            -strip \
+            {} +
+
+          # Optimize WebP images
+          find ./public -type f -name "*.webp" -exec mogrify \
+            -strip \
+            -quality 85 \
+            {} +
+
+          # Count images after optimization
+          IMAGES_AFTER=$(find ./public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) | wc -l)
+          SIZE_AFTER=$(du -sh ./public | cut -f1)
+          SAVED_BYTES=$(( $(du -sb ./public | cut -f1) < $(du -sb ./public/optimized 2>/dev/null | cut -f1) || echo 0 ))
+
+          echo "Images after: ${IMAGES_AFTER}"
+          echo "Size after: ${SIZE_AFTER}"
+          echo "✅ Image optimization complete!"
+        shell: bash
+
+      - name: Upload optimized artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-site-optimized
+          path: ./public
+          retention-days: 5
+
   # Image size check job - runs on all pushes and PRs
   image-check:
     name: Check Image Sizes
@@ -123,15 +185,14 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    needs: [build, link-check, html-validate, image-check]
-    if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
+    needs: [build, link-check, html-validate, optimize-assets]
     permissions:
       contents: write
     steps:
-      - name: Download built site
+      - name: Download optimized site
         uses: actions/download-artifact@v4
         with:
-          name: hugo-site
+          name: hugo-site-optimized
           path: ./public
 
       - name: Deploy
@@ -146,19 +207,19 @@ jobs:
   deploy-preview:
     name: Deploy Preview
     runs-on: ubuntu-latest
-    needs: [build, link-check]
+    needs: [build, link-check, optimize-assets]
     if: ${{ github.event_name == 'pull_request' }}
     concurrency:
       group: ${{ github.workflow }}-preview-${{ github.event.number }}
       cancel-in-progress: true
     permissions:
       contents: write
-      pull-requests: write
+      pull_requests: write
     steps:
-      - name: Download built site
+      - name: Download optimized site
         uses: actions/download-artifact@v4
         with:
-          name: hugo-site
+          name: hugo-site-optimized
           path: ./public
 
       - name: Deploy to Preview Branch
