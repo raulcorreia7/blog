@@ -1,4 +1,5 @@
-baseURL: "https://raulcorreia.dev"
+baseURL: "https://raulcorreia7.github.io/blog/"
+relativeURLs: true
 title: Raul Correia
 theme: risotto
 languageCode: en
@@ -33,9 +34,8 @@ params:
     headline: "Backend Engineer, Foodie"
     bio: "Raúl Correia personal blog"
     links:
-      github: "https://github.com/raulcorreia7/"
-      linkedin: "https://www.linkedin.com/in/raul-correia/"
-      rss: "https://raulcorreia.dev/index.xml"
+      - github: "https://github.com/raulcorreia7/"
+      - linkedin: "https://www.linkedin.com/in/raul-correia/"
 
 # Navigation menu
 menu:
