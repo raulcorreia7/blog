@@ -1,5 +1,4 @@
 baseURL: "https://raulcorreia.dev/"
-relativeURLs: true
 title: Raul Correia
 theme: risotto
 languageCode: en
