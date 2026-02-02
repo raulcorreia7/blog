@@ -81,10 +81,8 @@ markup:
   highlight:
     codeFences: true
     guessSyntax: true
-    lineNos: true
-    lineNumbersInTable: true
-    noClasses: false
+    lineNos: false
+    lineNumbersInTable: false
+    noClasses: true
     style: dracula
     tabWidth: 4
-    lineAnchors: true
-    anchorLineNos: true
