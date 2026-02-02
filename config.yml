@@ -86,3 +86,5 @@ markup:
     noClasses: false
     style: dracula
     tabWidth: 4
+    lineAnchors: true
+    anchorLineNos: true
