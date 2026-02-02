@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on Raul Correia</title><link>https://raulcorreia.dev/tags/hugo/</link><description>Recent content in Hugo on Raul Correia</description><generator>Hugo</generator><language>en</language><managingEditor>your.email@example.com (Raúl Correia)</managingEditor><webMaster>your.email@example.com (Raúl Correia)</webMaster><lastBuildDate>Sat, 23 Apr 2022 20:27:17 +0100</lastBuildDate><atom:link href="https://raulcorreia.dev/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Open-Sourcing my personal blog</title><link>https://raulcorreia.dev/posts/open-source-blog/</link><pubDate>Sat, 23 Apr 2022 20:27:17 +0100</pubDate><author>your.email@example.com (Raúl Correia)</author><guid>https://raulcorreia.dev/posts/open-source-blog/</guid><description>&lt;h2 id="intro"&gt;Intro&lt;/h2&gt;
+&lt;figure&gt;&lt;img src="https://raulcorreia.dev/images/opensource-logo.png"
+ alt="Open Source Initiative logo"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Hello everyone, this is your friendly tinkerer coder writing on &lt;strong&gt;How I Open Sourced my blog&lt;/strong&gt;.
+Why suddenly posting such about mundane thing?&lt;/p&gt;
+&lt;p&gt;Well, I believe the technical steps taken to develop this blog are very interesting for certain use cases, personal development, documentation for Software Projects, or just tinkering.&lt;/p&gt;
+&lt;p&gt;Through out this series of posts I will guide the reader on how to setup your own Hugo Blog. We will iterate in many different solutions throughout the series.&lt;/p&gt;</description></item></channel></rss>
