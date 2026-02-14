@@ -122,23 +122,59 @@
 
   function setupScrollProgress() {
     var bar = document.querySelector("[data-scroll-progress]");
+    var thumb = document.querySelector("[data-scroll-progress-thumb]");
     if (!bar) {
       return;
     }
 
     var root = bar.parentElement;
+    var rootComputedStyle = window.getComputedStyle(document.documentElement);
+
+    function toPixels(value) {
+      if (!value) {
+        return 0;
+      }
+
+      var normalized = String(value).trim();
+      if (normalized.endsWith("px")) {
+        return parseFloat(normalized) || 0;
+      }
+
+      if (normalized.endsWith("rem")) {
+        var rem = parseFloat(normalized) || 0;
+        var rootFontSize = parseFloat(rootComputedStyle.fontSize) || 16;
+        return rem * rootFontSize;
+      }
+
+      return parseFloat(normalized) || 0;
+    }
 
     function update() {
       var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      var markerOffset = toPixels(
+        window.getComputedStyle(root).getPropertyValue("--scroll-marker-offset")
+      );
+      var railHeight = Math.max(0, root.clientHeight - markerOffset * 2);
+
       if (maxScroll <= 0) {
         root.classList.add("is-hidden");
+        root.classList.add("is-start");
+        root.classList.remove("is-end");
         bar.style.transform = "scaleY(0)";
+        if (thumb) {
+          thumb.style.top = markerOffset + "px";
+        }
         return;
       }
 
       var progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
       root.classList.remove("is-hidden");
+      root.classList.toggle("is-start", progress <= 0.001);
+      root.classList.toggle("is-end", progress >= 0.999);
       bar.style.transform = "scaleY(" + progress.toFixed(4) + ")";
+      if (thumb) {
+        thumb.style.top = (markerOffset + railHeight * progress).toFixed(2) + "px";
+      }
     }
 
     update();

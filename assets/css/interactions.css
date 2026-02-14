@@ -1,4 +1,7 @@
 .scroll-progress {
+  --scroll-marker-offset: 0.55rem;
+  --scroll-marker-size: 0.34rem;
+  --scroll-thumb-size: 0.42rem;
   position: fixed;
   top: 0;
   right: calc(50% - (min(var(--layout-max-width), calc(100% - (2 * var(--layout-pad-x)))) / 2));
@@ -14,14 +17,63 @@
   opacity: 0;
 }
 
+.scroll-progress::before,
+.scroll-progress::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: var(--scroll-marker-size);
+  height: var(--scroll-marker-size);
+  border-radius: 999px;
+  background: var(--fg-dim);
+  transform: translate(-50%, -50%);
+  opacity: 0.45;
+  transition:
+    background var(--transition),
+    opacity var(--transition),
+    box-shadow var(--transition);
+}
+
+.scroll-progress::before {
+  top: var(--scroll-marker-offset);
+}
+
+.scroll-progress::after {
+  top: calc(100% - var(--scroll-marker-offset));
+}
+
+.scroll-progress.is-start::before,
+.scroll-progress.is-end::after {
+  background: var(--accent);
+  opacity: 0.75;
+  box-shadow: 0 0 0.3rem var(--accent-shadow-soft);
+}
+
 .scroll-progress__bar {
+  position: absolute;
+  left: 0;
+  top: var(--scroll-marker-offset);
   display: block;
   width: 100%;
-  height: 100%;
+  height: calc(100% - (2 * var(--scroll-marker-offset)));
   transform: scaleY(0);
   transform-origin: top center;
   background: var(--scroll-progress-gradient);
+  opacity: 0.55;
   transition: transform 0.1s linear;
+}
+
+.scroll-progress__thumb {
+  position: absolute;
+  left: 50%;
+  top: var(--scroll-marker-offset);
+  width: var(--scroll-thumb-size);
+  height: var(--scroll-thumb-size);
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0.28rem var(--accent-shadow-soft);
+  opacity: 0.7;
 }
 
 @media (max-width: 600px) {
