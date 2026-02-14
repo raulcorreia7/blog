@@ -61,7 +61,6 @@ jobs:
     name: Optimize Assets
     runs-on: ubuntu-latest
     needs: build
-    continue-on-error: true # Allow this job to fail without blocking deployment
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -97,18 +96,18 @@ jobs:
             -strip \
             -quality 85 \
             -interlace Plane \
-            {} + || echo "Warning: JPEG optimization failed, continuing..."
+            {} +
 
           # Optimize PNG images
           find ./public -type f -name "*.png" -exec mogrify \
             -strip \
-            {} + || echo "Warning: PNG optimization failed, continuing..."
+            {} +
 
           # Optimize WebP images
           find ./public -type f -name "*.webp" -exec mogrify \
             -strip \
             -quality 85 \
-            {} + || echo "Warning: WebP optimization failed, continuing..."
+            {} +
 
           # Count images after optimization
           IMAGES_AFTER=$(find ./public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) | wc -l)
@@ -177,22 +176,14 @@ jobs:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-    needs: [build, html-validate, link-check]
+    needs: [build, optimize-assets, html-validate, link-check]
     permissions:
       contents: write
     steps:
-      - name: Download optimized site (or fallback to unoptimized)
+      - name: Download optimized site
         uses: actions/download-artifact@v4
         with:
           name: hugo-site-optimized
-          path: ./public
-        continue-on-error: true
-
-      - name: Download unoptimized site (fallback)
-        if: failure()
-        uses: actions/download-artifact@v4
-        with:
-          name: hugo-site
           path: ./public
 
       - name: Deploy
@@ -207,7 +198,7 @@ jobs:
   deploy-preview:
     name: Deploy Preview
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [build, optimize-assets]
     if: ${{ github.event_name == 'pull_request' }}
     concurrency:
       group: ${{ github.workflow }}-preview-${{ github.event.number }}
@@ -220,14 +211,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: hugo-site-optimized
-          path: ./public
-        continue-on-error: true
-
-      - name: Download unoptimized site (fallback)
-        if: failure()
-        uses: actions/download-artifact@v4
-        with:
-          name: hugo-site
           path: ./public
 
       - name: Deploy to Preview Branch
