@@ -221,7 +221,7 @@
   }
 
   .nav__menu {
-    --nav-menu-gap: 0.95rem;
+    --nav-menu-gap: 0.82rem;
     gap: var(--nav-menu-gap);
     margin-top: var(--space-sm);
     font-size: 0.85rem;
@@ -229,7 +229,8 @@
 
   .nav__item--about {
     margin-left: 0;
-    padding-left: 0.5rem;
+    padding-left: 0;
+    border-left: 0;
   }
 }
 

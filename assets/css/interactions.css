@@ -80,7 +80,7 @@
 
 @media (max-width: 600px) {
   .scroll-progress {
-    right: var(--layout-pad-mobile-x);
+    display: none;
   }
 }
 
