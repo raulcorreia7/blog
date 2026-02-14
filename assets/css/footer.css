@@ -12,22 +12,28 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.08rem;
+  flex-wrap: wrap;
+  column-gap: 0;
+  row-gap: 0.12rem;
   font-family: var(--font-mono);
   font-size: 0.92rem;
   line-height: 1.3;
 }
 
 .footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
   color: var(--footer-link-color);
   line-height: 1;
 }
 
 .social-link__separator {
-  display: inline-block;
+  display: inline;
+  white-space: pre;
   color: var(--fg-dim);
   opacity: 0.65;
-  margin: 0 0.2rem;
+  margin: 0;
   user-select: none;
 }
 
