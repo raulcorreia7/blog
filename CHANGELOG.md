@@ -13,8 +13,11 @@ All notable changes to this project are documented in this file.
 - Mermaid shortcode + runtime integration using jsDelivr ESM (`mermaid@11`).
 - Asciinema shortcode + runtime integration using jsDelivr (`asciinema-player@3`).
 - New revamp post documenting domain/theme/CI/CD/performance work.
+- New `books` section with menu entry, section template, and reusable book-card partial.
+- Books archetype (`archetypes/books.md`) for consistent entry front matter.
 - Documentation set:
   - `docs/css-architecture.md`
+  - `docs/books.md`
   - `docs/shortcodes.md`
   - `docs/plugins.md`
 

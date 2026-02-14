@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ $books := .Pages.ByDate.Reverse }}
+
+  <h1 class="page__title">{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{ if gt (len $books) 0 }}
+    <p class="page__count">{{ len $books }} book{{ if gt (len $books) 1 }}s{{ end }}</p>
+  {{ end }}
+
+  <section class="post-list">
+    {{ range $books }}
+      {{ partial "book-card.html" . }}
+    {{ end }}
+  </section>
+{{ end }}

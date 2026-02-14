@@ -12,6 +12,7 @@ Personal blog built with Hugo and a custom terminal-first theme.
 - Modular CSS architecture with shared design tokens
 - Lightweight JS modules for theme + UI interactions
 - Content plugins for Mermaid and Asciinema
+- Dedicated books section with custom list cards and metadata
 - Global image/diagram zoom overlay with keyboard support
 - Adblock-safe site meta fallback that preserves semantic `<footer>` markup
 - Mobile header keeps the terminal cursor visible and uses compact `:light`/`:dark` theme labels
@@ -35,10 +36,17 @@ Create a post:
 hugo new posts/my-post/index.md
 ```
 
+Create a book entry:
+
+```bash
+hugo new books/my-book/index.md
+```
+
 ## Architecture Docs
 
 - `docs/css-architecture.md`
 - `docs/ci-cd.md`
+- `docs/books.md`
 - `docs/plugins.md`
 - `docs/shortcodes.md`
 - `CHANGELOG.md`
