@@ -1,0 +1,12 @@
+{
+  "name": "blog",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "prettier-plugin-toml": "^2.0.6"
+  }
+}
