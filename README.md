@@ -1,74 +1,48 @@
-# Raul Correia Personal Blog
+# Raul Correia Blog
 
-Personal blog built with Hugo and the Risotto theme.
+Personal blog built with Hugo and a custom terminal-first theme.
 
-## Demo
+## Live
 
-[https://raulcorreia.dev](https://raulcorreia.dev)
+- https://raulcorreia.dev
 
-## Built With
+## What This Repo Includes
 
-* [Hugo](https://gohugo.io/) - Static site generator
-* [Risotto theme](https://github.com/joeroe/risotto) - Hugo theme
-* [Visual Studio Code](https://code.visualstudio.com/) - Editor
+- Custom Hugo layouts (no external theme dependency)
+- Modular CSS architecture with shared design tokens
+- Lightweight JS modules for theme + UI interactions
+- Content plugins for Mermaid and Asciinema
+- GitHub Actions pipeline for build, validation, and deploy
 
-## Getting Started
+## Local Development
 
-### Prerequisites
+Prerequisites: `hugo`, `make`, `git`
 
-* hugo
-* make
-* git
-
-### Installation
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/raulcorreia7/blog.git
-   cd blog
-   ```
-
-2. Initialize submodules
-   ```bash
-   make dependencies
-   ```
-
-3. Build the site
-   ```bash
-   make all
-   ```
-
-## Usage
-
-See all available make commands:
 ```bash
 make help
-```
-
-Run development server:
-```bash
-make watch
-```
-
-Build and run in development mode:
-```bash
 make dev
+make all
 ```
 
-## Deployment
+Create a post:
 
-The blog is automatically deployed to GitHub Pages via CI/CD. See `.github/workflows/build-hugo-website.yml` for configuration.
+```bash
+hugo new posts/my-post/index.md
+```
 
-### Custom Domain
+## Architecture Docs
 
-The blog uses the custom domain `raulcorreia.dev`. See `CLOUDFLARE_SETUP.md` for Cloudflare DNS configuration.
+- `docs/css-architecture.md`
+- `docs/plugins.md`
+- `docs/shortcodes.md`
+- `CHANGELOG.md`
+
+## CI/CD
+
+- Workflow: `.github/workflows/build-hugo-website.yml`
+- Deploy target: GitHub Pages (`gh-pages`)
+- Production domain: `raulcorreia.dev` (DNS/SSL via Cloudflare)
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-## Contact
-
-Raúl Correia - [@raul_correia](https://twitter.com/raul_correia)
-
-LinkedIn: [https://linkedin.com/in/raul-correia/](https://linkedin.com/in/raul-correia/)
+MIT (`LICENSE.txt`)
