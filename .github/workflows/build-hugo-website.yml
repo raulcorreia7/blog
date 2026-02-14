@@ -9,10 +9,21 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  HUGO_VERSION: "0.155.3"
+  NODE_VERSION: "20"
+  ARTIFACT_SITE: hugo-site
+  ARTIFACT_SITE_OPTIMIZED: hugo-site-optimized
+
 jobs:
   lint-format:
     name: Lint and Format Check
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,8 +31,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -29,24 +40,21 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-  # Build job - runs on all pushes and PRs
   build:
     name: Build Hugo Site
     runs-on: ubuntu-latest
     needs: lint-format
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.155.3"
+          hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
       - name: Build
@@ -55,107 +63,77 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: hugo-site
+          name: ${{ env.ARTIFACT_SITE }}
           path: ./public
+          if-no-files-found: error
           retention-days: 5
 
-  # Asset optimization job - runs on all pushes and PRs
   optimize-assets:
     name: Optimize Assets
     runs-on: ubuntu-latest
     needs: build
+    timeout-minutes: 15
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: hugo-site
+          name: ${{ env.ARTIFACT_SITE }}
           path: ./public
 
       - name: Install ImageMagick
+        shell: bash
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
           command -v mogrify
           mogrify -version
-        shell: bash
 
       - name: Optimize Images
-        run: |
-          #!/bin/bash
-          set -euo pipefail
-          echo "Optimizing images..."
-
-          # Count images before optimization
-          IMAGES_BEFORE=$(find ./public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) | wc -l)
-          SIZE_BEFORE=$(du -sh ./public | cut -f1)
-          echo "Images before: ${IMAGES_BEFORE}"
-          echo "Size before: ${SIZE_BEFORE}"
-
-          # Optimize JPEG images
-          find ./public -type f \( -name "*.jpg" -o -name "*.jpeg" \) -exec mogrify \
-            -strip \
-            -quality 85 \
-            -interlace Plane \
-            {} +
-
-          # Optimize PNG images
-          find ./public -type f -name "*.png" -exec mogrify \
-            -strip \
-            {} +
-
-          # Optimize WebP images
-          find ./public -type f -name "*.webp" -exec mogrify \
-            -strip \
-            -quality 85 \
-            {} +
-
-          # Count images after optimization
-          IMAGES_AFTER=$(find ./public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) | wc -l)
-          SIZE_AFTER=$(du -sh ./public | cut -f1)
-
-          echo "Images after: ${IMAGES_AFTER}"
-          echo "Size after: ${SIZE_AFTER}"
-          echo "Image optimization complete!"
-        shell: bash
+        run: ./scripts/optimize-images.sh ./public
 
       - name: Upload optimized artifact
         uses: actions/upload-artifact@v4
         with:
-          name: hugo-site-optimized
+          name: ${{ env.ARTIFACT_SITE_OPTIMIZED }}
           path: ./public
+          if-no-files-found: error
           retention-days: 5
 
-  # Link checking job - runs on all pushes and PRs
   link-check:
     name: Check Links
     runs-on: ubuntu-latest
     needs: build
+    timeout-minutes: 10
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: hugo-site
+          name: ${{ env.ARTIFACT_SITE }}
           path: ./public
 
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2.7.0
         with:
-          # Check links but exclude production domain (not deployed yet during CI)
-          args: --verbose --no-progress --exclude "https://raulcorreia.dev" --exclude "https://www.raulcorreia.dev" ./public/**/*.html
+          args: >-
+            --verbose
+            --no-progress
+            --exclude "https://raulcorreia.dev"
+            --exclude "https://www.raulcorreia.dev"
+            ./public/**/*.html
           fail: true
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # HTML validation job - runs on all pushes and PRs
   html-validate:
     name: Validate HTML
     runs-on: ubuntu-latest
     needs: build
+    timeout-minutes: 10
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: hugo-site
+          name: ${{ env.ARTIFACT_SITE }}
           path: ./public
 
       - name: HTML5 Validator
@@ -164,21 +142,20 @@ jobs:
           root: ./public
           format: json
           skip_git_check: true
-        continue-on-error: false
 
-  # Deployment job - only runs on master branch after all checks pass
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-    needs: [build, optimize-assets, html-validate, link-check]
+    needs: [optimize-assets, html-validate, link-check]
     permissions:
       contents: write
+    timeout-minutes: 10
     steps:
       - name: Download optimized site
         uses: actions/download-artifact@v4
         with:
-          name: hugo-site-optimized
+          name: ${{ env.ARTIFACT_SITE_OPTIMIZED }}
           path: ./public
 
       - name: Deploy
@@ -189,23 +166,20 @@ jobs:
           cname: raulcorreia.dev
           force_orphan: true
 
-  # Deployment preview for PRs
   deploy-preview:
     name: Deploy Preview
     runs-on: ubuntu-latest
-    needs: [build, optimize-assets]
     if: ${{ github.event_name == 'pull_request' }}
-    concurrency:
-      group: ${{ github.workflow }}-preview-${{ github.event.number }}
-      cancel-in-progress: true
+    needs: [optimize-assets, html-validate, link-check]
     permissions:
       contents: write
       pull-requests: write
+    timeout-minutes: 10
     steps:
       - name: Download optimized site
         uses: actions/download-artifact@v4
         with:
-          name: hugo-site-optimized
+          name: ${{ env.ARTIFACT_SITE_OPTIMIZED }}
           path: ./public
 
       - name: Deploy to Preview Branch
