@@ -132,13 +132,13 @@
       var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       if (maxScroll <= 0) {
         root.classList.add("is-hidden");
-        bar.style.transform = "scaleX(0)";
+        bar.style.transform = "scaleY(0)";
         return;
       }
 
       var progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
       root.classList.remove("is-hidden");
-      bar.style.transform = "scaleX(" + progress.toFixed(4) + ")";
+      bar.style.transform = "scaleY(" + progress.toFixed(4) + ")";
     }
 
     update();
