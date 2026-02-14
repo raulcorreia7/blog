@@ -30,3 +30,8 @@
 .footer__social a:hover {
   color: var(--accent);
 }
+
+.social-link__prefix {
+  color: var(--fg-dim);
+  opacity: 0.88;
+}
