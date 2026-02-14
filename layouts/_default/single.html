@@ -1,16 +1,19 @@
 {{ define "main" }}
   {{ $isAbout := or (eq .Section "about") (eq .RelPermalink "/about/") }}
+  {{ $isPost := eq .Section "posts" }}
 
   <article class="article{{ if $isAbout }} article--about{{ end }}">
     <header class="article__header">
       <div class="article__title-row">
         <h1 class="article__title">{{ .Title }}</h1>
-        {{ if not $isAbout }}
-          <time class="article__date">{{ .Date.Format site.Params.dateFormat }}</time>
+        {{ if and (not $isAbout) $isPost }}
+          <time class="article__date" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format site.Params.dateFormat }}
+          </time>
         {{ end }}
       </div>
 
-      {{ if and (not $isAbout) (or .Params.categories .Params.tags) }}
+      {{ if and (not $isAbout) $isPost (or .Params.categories .Params.tags) }}
         <div class="article__tags">
           {{ partial "tag-items.html" .Params.categories }}
           {{ partial "tag-items.html" .Params.tags }}

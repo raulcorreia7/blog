@@ -16,12 +16,13 @@ Personal blog built with Hugo and a custom terminal-first theme.
 
 ## Local Development
 
-Prerequisites: `hugo`, `make`, `git`
+Prerequisites: `hugo`, `make`, `git`, `npm`
 
 ```bash
 make help
 make dev
 make all
+make hooks
 ```
 
 Create a post:
@@ -36,6 +37,17 @@ hugo new posts/my-post/index.md
 - `docs/plugins.md`
 - `docs/shortcodes.md`
 - `CHANGELOG.md`
+
+## Git Hooks
+
+- Hooks are versioned in `.githooks/`.
+- Install locally with:
+
+```bash
+make hooks
+```
+
+- Current pre-commit hook runs: `npm run lint` (Prettier check).
 
 ## CI/CD
 
