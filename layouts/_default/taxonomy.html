@@ -1,0 +1,18 @@
+{{ define "main" }}
+  {{ $isTermList := and (gt (len .Pages) 0) (eq (index .Pages 0).Kind "term") }}
+  {{ $posts := .Pages.ByDate.Reverse }}
+
+  <h1 class="page__title">{{ .Title }}</h1>
+
+  {{ if $isTermList }}
+    <p class="page__count">{{ len .Pages }} {{ .Data.Plural }}</p>
+    <section class="post-list">
+      {{ range .Data.Terms.ByCount }}
+        {{ partial "taxonomy-card.html" . }}
+      {{ end }}
+    </section>
+  {{ else }}
+    <p class="page__count">{{ len $posts }} post{{ if ne (len $posts) 1 }}s{{ end }}</p>
+    {{ partial "post-list.html" $posts }}
+  {{ end }}
+{{ end }}

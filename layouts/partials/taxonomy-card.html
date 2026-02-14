@@ -1,0 +1,8 @@
+<article class="post-card post-card--taxonomy">
+  <div class="post-card__header">
+    <h2 class="post-card__title">
+      <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+    </h2>
+    <span class="post-card__date">{{ .Count }} post{{ if ne .Count 1 }}s{{ end }}</span>
+  </div>
+</article>

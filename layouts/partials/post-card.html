@@ -1,0 +1,18 @@
+<article class="post-card">
+  <div class="post-card__header">
+    <h2 class="post-card__title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h2>
+    <time class="post-card__date" datetime="{{ .Date.Format "2006-01-02" }}">
+      {{ .Date.Format site.Params.dateFormat }}
+    </time>
+  </div>
+  {{ with .Description }}
+    <p class="post-card__excerpt">{{ . }}</p>
+  {{ end }}
+  {{ with .Params.categories }}
+    <div class="post-card__tags">
+      {{ partial "tag-items.html" . }}
+    </div>
+  {{ end }}
+</article>

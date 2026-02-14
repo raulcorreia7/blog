@@ -1,42 +1,18 @@
 baseURL: "https://raulcorreia.dev/"
-title: Raul Correia
-theme: risotto
+title: raulcorreia.dev
 languageCode: en
-defaultContentLanguage: en
 
-pagination:
-  pagerSize: 20
-
-# Site parameters
 params:
-  dateFormat: "January 2, 2006"
-  rtl: false
-  customCSS: []
-  customSCSS: []
-  customJS: []
-  mermaid: true
-  
-  # Theme params
-  colorScheme: "risotto"
-  defaultAppearance: "dark"
-  autoSwitchAppearance: true
-  enableSearch: false
-  enableCodeCopy: true
-  enableStyledScrollbar: true
-  
-  # Author info
+  description: "Raúl Correia's personal blog"
+  dateFormat: "Jan 2, 2006"
+
   author:
     name: "Raúl Correia"
-    email: "your.email@example.com"
-    image: "img/avatar_circle.png"
-    imageQuality: 96
-    headline: "Backend Engineer, Foodie"
-    bio: "Raúl Correia personal blog"
-    links:
-      - github: "https://github.com/raulcorreia7/"
-      - linkedin: "https://www.linkedin.com/in/raul-correia/"
 
-# Navigation menu
+  social:
+    github: "https://github.com/raulcorreia7/"
+    linkedin: "https://www.linkedin.com/in/raul-correia/"
+
 menu:
   main:
     - name: Posts
@@ -52,28 +28,9 @@ menu:
       pageRef: about
       weight: 40
 
-# Languages
-languages:
-  en:
-    disabled: false
-    languageCode: en
-    languageName: English
-    weight: 1
-    params:
-      displayName: EN
-      isoCode: en
-      rtl: false
-      dateFormat: "January 2, 2006"
-      description: "Raúl Correia personal blog"
-
-# Outputs
 outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
+  home: [HTML, RSS, JSON]
 
-# Chroma syntax highlighting with terminal aesthetic
 markup:
   goldmark:
     renderer:
@@ -81,8 +38,5 @@ markup:
   highlight:
     codeFences: true
     guessSyntax: true
-    lineNos: false
-    lineNumbersInTable: false
     noClasses: true
-    style: dracula
-    tabWidth: 4
+    style: tokyonight-night

@@ -1,26 +1,18 @@
-<nav class="page__nav main-nav">
-    <div class="terminal-shell">
-        <div class="shell-header">
-            <div class="shell-prompt">
-                <span class="prompt-symbol">❯</span>
-                <span class="prompt-path">~</span>
-            </div>
-            <h1 class="page__logo">
-                <a href="{{ "/" | relURL }}" class="page__logo-inner">
-                    <span class="logo-text">{{ .Site.Title }}</span>
-                    <span class="cursor">▌</span>
-                </a>
-            </h1>
-        </div>
-        <ul class="nav-menu">
-        {{ $currentPage := . }}
-        {{ range .Site.Menus.main }}
-        <li class="main-nav__item">
-            <a class="nav-main-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq ($currentPage.RelPermalink) (.URL)) }} active{{end}}" href="{{ .URL | relURL }}" title="{{ .Title }}">
-                {{ .Name }}
-            </a>
-        </li>
-        {{ end }}
-        </ul>
+<nav class="nav">
+  <div class="nav__header">
+    <div class="nav__prompt">
+      <span class="prompt__symbol">$</span>
+      <span class="prompt__path">~</span>
     </div>
+    <a href="{{ "/" | relURL }}" class="nav__logo">{{ .Site.Title }}</a>
+    <span class="nav__cursor">▌</span>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark or light theme">
+      <span class="theme-toggle__prefix">:theme</span>
+      {{ $defaultTheme := lower (.Site.Params.defaultAppearance | default "dark") }}
+      <span class="theme-toggle__value" data-theme-value>{{ if eq $defaultTheme "light" }}light{{ else }}dark{{ end }}</span>
+    </button>
+  </div>
+  <ul class="nav__menu">
+    {{ partial "nav-menu-items.html" . }}
+  </ul>
 </nav>

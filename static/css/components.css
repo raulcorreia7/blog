@@ -1,0 +1,19 @@
+.notice {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--bg-alt);
+}
+
+.notice p {
+  margin: 0;
+}
+
+.notice--warning {
+  border-left-color: #f59e0b;
+}
+
+.notice--error {
+  border-left-color: #ef4444;
+}
