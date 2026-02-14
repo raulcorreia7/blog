@@ -6,12 +6,14 @@
       <span class="social-link__prefix">:</span><span class="social-link__label">github</span>
     </a>
     {{ end }}
-    {{ with .Site.Params.social.linkedin }}
+    {{- with .Site.Params.social.linkedin -}}
+    <span class="social-link__separator">|</span>
     <a href="{{ . }}" rel="me" title="LinkedIn" aria-label="LinkedIn">
       <span class="social-link__prefix">:</span><span class="social-link__label">linkedin</span>
     </a>
-    {{ end }}
-    {{ with .OutputFormats.Get "rss" }}
+    {{- end -}}
+    {{- with .OutputFormats.Get "rss" -}}
+    <span class="social-link__separator">|</span>
     <a href="{{ .Permalink }}" title="RSS" aria-label="RSS">
       <span class="social-link__prefix">:</span><span class="social-link__label">rss</span>
     </a>
