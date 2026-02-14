@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v npm >/dev/null 2>&1; then
+  echo "[pre-commit] npm is required to run lint/format checks."
+  exit 1
+fi
+
+if [ ! -d node_modules ]; then
+  echo "[pre-commit] node_modules not found. Run: npm install"
+  exit 1
+fi
+
+echo "[pre-commit] Running lint/format checks..."
+npm run lint

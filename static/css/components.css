@@ -17,3 +17,40 @@
 .notice--error {
   border-left-color: #ef4444;
 }
+
+.doom-launcher {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-alt);
+}
+
+.doom-button {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+
+.doom-button:hover,
+.doom-button:focus-visible {
+  background: var(--accent-hover);
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+.doom-hint {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}

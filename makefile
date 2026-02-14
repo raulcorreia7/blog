@@ -1,4 +1,4 @@
-.PHONY: all clean watch dev stop public
+.PHONY: all clean watch dev stop public hooks
 
 HUGO  := hugo
 FLAGS := --gc --minify
@@ -16,6 +16,7 @@ help:
 	@echo "  watch        Run local dev server in watch mode"
 	@echo "  stop         Stop local dev server on port $(PORT)"
 	@echo "  public       Build only"
+	@echo "  hooks        Install git hooks from .githooks"
 	@echo ""
 	@echo "New article:"
 	@echo "  hugo new posts/the-title/index.md"
@@ -46,3 +47,6 @@ dev:
 
 public:
 	$(HUGO) $(FLAGS) -d $(DEST)
+
+hooks:
+	./scripts/install-hooks.sh
