@@ -18,7 +18,7 @@ echo "Size before: ${SIZE_BEFORE}"
 # Optimize JPEG images
 find "${TARGET_DIR}" -type f \( -name "*.jpg" -o -name "*.jpeg" \) -exec mogrify \
   -strip \
-  -quality 85 \
+  -quality 90 \
   -interlace Plane \
   {} +
 
@@ -30,7 +30,7 @@ find "${TARGET_DIR}" -type f -name "*.png" -exec mogrify \
 # Optimize WebP images
 find "${TARGET_DIR}" -type f -name "*.webp" -exec mogrify \
   -strip \
-  -quality 85 \
+  -quality 90 \
   {} +
 
 IMAGES_AFTER=$(find "${TARGET_DIR}" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) | wc -l)
