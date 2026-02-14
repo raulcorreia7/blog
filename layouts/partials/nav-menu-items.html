@@ -1,7 +1,7 @@
 {{ $currentPage := . }}
 {{ range .Site.Menus.main }}
   {{ $url := cond .Page .Page.RelPermalink .URL }}
-  {{ $isAboutItem := eq (lower .Name) "about" }}
+  {{ $isAboutItem := or (eq .Identifier "about") (eq .PageRef "about") }}
   <li{{ if $isAboutItem }} class="nav__item--about"{{ end }}>
     <a class="nav__link{{ if $currentPage.IsMenuCurrent "main" . }} nav__link--active{{ end }}" href="{{ $url }}">
       {{ .Name }}
