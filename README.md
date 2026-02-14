@@ -35,6 +35,7 @@ hugo new posts/my-post/index.md
 ## Architecture Docs
 
 - `docs/css-architecture.md`
+- `docs/ci-cd.md`
 - `docs/plugins.md`
 - `docs/shortcodes.md`
 - `CHANGELOG.md`
@@ -55,6 +56,7 @@ make hooks
 - Workflow: `.github/workflows/build-hugo-website.yml`
 - Deploy target: GitHub Pages (`gh-pages`)
 - Production deploys on `master` pushes; pull requests publish preview deployments
+- Pull request previews skip image optimization for faster feedback; optimization runs only for production deploys.
 - Production domain: `raulcorreia.dev` (DNS/SSL via Cloudflare)
 
 ## License
