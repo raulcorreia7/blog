@@ -1,0 +1,52 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default (.Get "title") | default "" -}}
+{{- $caption := .Get "caption" -}}
+{{- $title := .Get "title" -}}
+{{- $class := .Get "class" -}}
+{{- $link := .Get "link" -}}
+{{- $target := .Get "target" -}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+{{- $decoding := .Get "decoding" | default "async" -}}
+{{- $fetchpriority := .Get "fetchpriority" | default "low" -}}
+{{- $attr := .Get "attr" -}}
+{{- $attrlink := .Get "attrlink" -}}
+
+{{- $resource := .Page.Resources.GetMatch $src -}}
+{{- $imgSrc := $src -}}
+{{- if $resource -}}
+  {{- $imgSrc = $resource.RelPermalink -}}
+{{- else if hasPrefix $src "/" -}}
+  {{- $imgSrc = $src | relURL -}}
+{{- end -}}
+
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  {{- if $link -}}
+    <a href="{{ $link }}"{{ with $target }} target="{{ . }}"{{ if eq . "_blank" }} rel="noopener noreferrer"{{ end }}{{ end }}>
+  {{- end -}}
+      <img
+        src="{{ $imgSrc }}"
+        alt="{{ $alt }}"
+        decoding="{{ $decoding }}"
+        loading="{{ $loading }}"
+        fetchpriority="{{ $fetchpriority }}"
+        {{- with $title }} title="{{ . }}"{{ end -}}
+        {{- with $resource }} width="{{ .Width }}" height="{{ .Height }}"{{ end -}}
+      />
+  {{- if $link -}}
+    </a>
+  {{- end -}}
+  {{- with $caption -}}
+    <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end -}}
+  {{- with $attr -}}
+    <figcaption>
+      {{- with $attrlink -}}
+        <a href="{{ . }}">
+      {{- end -}}
+      {{- . | markdownify -}}
+      {{- if $attrlink -}}
+        </a>
+      {{- end -}}
+    </figcaption>
+  {{- end -}}
+</figure>

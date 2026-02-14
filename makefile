@@ -1,4 +1,4 @@
-.PHONY: all clean watch dev stop public hooks sync-fontawesome
+.PHONY: all clean watch dev stop public hooks
 
 HUGO  := hugo
 FLAGS := --gc --minify --cleanDestinationDir
@@ -17,7 +17,6 @@ help:
 	@echo "  stop            Stop local dev server on port $(PORT)"
 	@echo "  public          Build only"
 	@echo "  hooks           Install git hooks from .githooks"
-	@echo "  sync-fontawesome Sync Font Awesome files from node_modules"
 	@echo ""
 	@echo "New article:"
 	@echo "  hugo new posts/the-title/index.md"
@@ -28,7 +27,7 @@ help:
 clean:
 	rm -rf public/
 
-watch: clean sync-fontawesome
+watch: clean
 	@echo "Checking for existing Hugo server on port $(PORT)..."
 	@lsof -ti :$(PORT) | xargs kill -9 2>/dev/null || true
 	$(HUGO) server -w $(DEV_FLAGS) --port $(PORT) --bind 127.0.0.1
@@ -37,7 +36,7 @@ stop:
 	@echo "Stopping Hugo server on port $(PORT)..."
 	@lsof -ti :$(PORT) | xargs kill -9 2>/dev/null || echo "No Hugo server found on port $(PORT)"
 
-dev: sync-fontawesome
+dev:
 	@echo "Checking for existing Hugo server on port $(PORT)..."
 	@lsof -ti :$(PORT) | xargs kill -9 2>/dev/null || true
 	@echo "Starting Hugo dev server on http://localhost:$(PORT)"
@@ -46,12 +45,8 @@ dev: sync-fontawesome
 	@echo "Hugo server running at http://localhost:$(PORT)"
 	@echo "Use 'make stop' to stop the server"
 
-public: sync-fontawesome
+public:
 	$(HUGO) $(FLAGS) -d $(DEST)
-
-sync-fontawesome:
-	@echo "Syncing Font Awesome..."
-	@./scripts/sync-fontawesome.sh
 
 hooks:
 	./scripts/install-hooks.sh

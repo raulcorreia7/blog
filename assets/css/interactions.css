@@ -396,6 +396,8 @@ body.media-zoom-open {
 .code-copy i {
   font-size: 0.8rem;
   line-height: 1;
+  font-style: normal;
+  font-weight: 600;
   pointer-events: none;
 }
 

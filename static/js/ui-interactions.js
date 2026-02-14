@@ -1,9 +1,9 @@
 (function () {
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ICONS = {
-    idle: '<i class="fa-regular fa-copy far" aria-hidden="true"></i>',
-    copied: '<i class="fa-solid fa-check fas" aria-hidden="true"></i>',
-    error: '<i class="fa-solid fa-xmark fas" aria-hidden="true"></i>',
+    idle: '<i aria-hidden="true">+</i>',
+    copied: '<i aria-hidden="true">v</i>',
+    error: '<i aria-hidden="true">!</i>',
   };
 
   function onReady(callback) {
@@ -13,6 +13,15 @@
     }
 
     callback();
+  }
+
+  function scheduleNonCritical(task) {
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(task, { timeout: 300 });
+      return;
+    }
+
+    window.setTimeout(task, 1);
   }
 
   function copyText(value) {
@@ -45,20 +54,6 @@
     });
   }
 
-  function renderFontAwesomeIcons(root) {
-    if (
-      !window.FontAwesome ||
-      !window.FontAwesome.dom ||
-      typeof window.FontAwesome.dom.i2svg !== "function"
-    ) {
-      return;
-    }
-
-    window.FontAwesome.dom.i2svg({
-      node: root || document.body,
-    });
-  }
-
   function setCopyState(button, state) {
     var nextState = state === "copied" || state === "error" ? state : "idle";
     var label = "Copy code block";
@@ -72,7 +67,6 @@
     button.innerHTML = ICONS[nextState];
     button.setAttribute("aria-label", label);
     button.title = label;
-    renderFontAwesomeIcons(button);
   }
 
   function setupHeadingAnchors() {
@@ -461,12 +455,13 @@
   }
 
   onReady(function () {
-    renderFontAwesomeIcons(document.body);
     setupSiteMetaFallback();
-    setupHeadingAnchors();
-    setupCodeCopy();
-    setupMediaZoom();
     setupScrollProgress();
-    setupEntranceStagger();
+    scheduleNonCritical(function () {
+      setupHeadingAnchors();
+      setupCodeCopy();
+      setupMediaZoom();
+      setupEntranceStagger();
+    });
   });
 })();

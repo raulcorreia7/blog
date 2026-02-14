@@ -2,9 +2,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  rel="stylesheet"
+  rel="preload"
+  as="style"
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  onload="this.onload=null;this.rel='stylesheet'"
 />
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  />
+</noscript>
 {{ $styles := slice
   (resources.Get "css/theme/variables.css")
   (resources.Get "css/base.css")
@@ -64,4 +72,4 @@
   <script defer src="{{ partial "script-url.html" "js/asciinema-init.js" }}"></script>
 {{ end }}
 
-<script src="{{ partial "script-url.html" "js/theme-bootstrap.js" }}"></script>
+<script>{{ readFile "static/js/theme-bootstrap.js" | safeJS }}</script>

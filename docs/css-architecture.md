@@ -40,6 +40,8 @@ Key ownership notes:
 
 - Bundling happens in `layouts/partials/head.html` with Hugo Pipes (`resources.Concat | minify | fingerprint`).
 - Pages load one local stylesheet (`/css/main.min.<hash>.css`) instead of a CSS `@import` chain.
+- Theme bootstrap script is inlined in `layouts/partials/head.html` to apply theme before first paint without an extra network request.
+- Google Fonts stylesheet is loaded non-blocking (preload + onload swap + noscript fallback).
 
 ## Conventions
 

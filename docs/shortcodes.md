@@ -50,6 +50,21 @@ Use for callouts:
 {{< notice warning >}}Warning message{{< /notice >}}
 ```
 
+## Figure
+
+Use for images with optional caption:
+
+```text
+{{< figure src="about_image.jpg" alt="Profile photo" >}}
+{{< figure src="diagram.png" alt="Architecture diagram" caption="Current architecture." >}}
+```
+
+Implementation notes:
+
+- Markup is rendered by `layouts/shortcodes/figure.html`.
+- Images use `loading="lazy"` and `decoding="async"` by default.
+- When the image exists in the page bundle, intrinsic `width` and `height` are emitted to reduce layout shift.
+
 ## Recent Posts
 
 Use to render recent posts on a page:

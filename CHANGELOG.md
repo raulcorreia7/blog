@@ -26,6 +26,12 @@ All notable changes to this project are documented in this file.
 - CI/CD pipeline reorganized into lint, build, quality gates, optimization, and deploy stages.
 - About page and post templates aligned to the same visual language.
 - CSS delivery switched to Hugo Pipes bundling (`resources.Concat | minify | fingerprint`) for single-file loading and cache-safe updates.
+- Theme bootstrap JS is now inlined in `<head>` to eliminate an extra request and avoid first-paint theme flicker.
+- Google Fonts CSS now loads non-blocking (preload + onload swap with noscript fallback).
+- Added a custom `figure` shortcode template with lazy-loading, async decoding, and intrinsic dimensions for page-bundle images.
+- Deferred non-critical UI interaction setup to idle time to reduce main-thread work during initial render.
+- Removed Font Awesome runtime dependency for copy buttons in favor of lightweight native glyphs.
+- Removed unused vendored Font Awesome static assets and sync step from the local build workflow.
 - Removed CSS `color-mix()` usage in theme styles to avoid parser warnings and improve browser compatibility.
 - Simplified CI jobs by removing redundant checkouts in artifact-only validation steps.
 - Extracted CI image optimization into `scripts/optimize-images.sh` and centralized workflow constants/timeouts.
