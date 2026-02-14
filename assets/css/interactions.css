@@ -60,7 +60,8 @@
   transform-origin: top center;
   background: var(--scroll-progress-gradient);
   opacity: 0.55;
-  transition: transform 0.1s linear;
+  transition: none;
+  will-change: transform;
 }
 
 .scroll-progress__thumb {
@@ -74,6 +75,7 @@
   transform: translate(-50%, -50%);
   box-shadow: 0 0 0.28rem var(--accent-shadow-soft);
   opacity: 0.7;
+  will-change: top;
 }
 
 @media (max-width: 600px) {
