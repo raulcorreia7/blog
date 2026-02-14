@@ -1,7 +1,7 @@
 .PHONY: all clean watch dev stop public hooks
 
 HUGO  := hugo
-FLAGS := --gc --minify
+FLAGS := --gc --minify --cleanDestinationDir
 DEST  := public
 PORT  := 1313
 DEV_FLAGS := --buildFuture --buildDrafts --buildExpired
