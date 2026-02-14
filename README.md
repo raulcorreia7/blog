@@ -14,6 +14,8 @@ Personal blog built with Hugo and a custom terminal-first theme.
 - Content plugins for Mermaid and Asciinema
 - Global image/diagram zoom overlay with keyboard support
 - Adblock-safe site meta fallback that preserves semantic `<footer>` markup
+- Mobile header keeps the terminal cursor visible and uses compact `:light`/`:dark` theme labels
+- Mobile-safe CSS for dynamic viewport sizing, zoom overlay bounds, and horizontal scrolling of wide tables/diagrams
 - GitHub Actions pipeline for build, validation, and deploy
 
 ## Local Development

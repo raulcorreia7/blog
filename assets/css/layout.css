@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: var(--layout-pad-y) var(--layout-pad-x);
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }

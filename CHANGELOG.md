@@ -48,6 +48,8 @@ All notable changes to this project are documented in this file.
 - Revamp post CI/CD diagram and narrative updated to reflect PR preview deployments and current pipeline flow.
 - CI/CD documentation and revamp post wording refreshed to match the current artifact-driven workflow and deploy paths.
 - Added `docs/ci-cd.md` with updated job flow and deploy behavior.
+- Mobile header now keeps the terminal cursor visible and shows theme toggle as compact `:light`/`:dark` labels.
+- Mobile CSS hardening: page shell now uses dynamic viewport height fallback, zoom overlay sizing avoids narrow-screen overflow, and wide tables/mermaid blocks scroll horizontally.
 
 ### Removed
 

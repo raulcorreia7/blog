@@ -171,3 +171,12 @@ img {
   display: block;
   margin: 1.5rem auto;
 }
+
+@media (max-width: 600px) {
+  .article__content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

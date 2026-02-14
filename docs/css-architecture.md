@@ -24,11 +24,15 @@ Rule: use tokens first; avoid hardcoded values unless scoped to a one-off compon
 - `assets/css/base.css`: reset and global element defaults
 - `assets/css/layout.css`: page container/header/footer structure
 - `assets/css/typography.css`: markdown/content typography
+  - Mobile tables use horizontal scrolling to prevent viewport overflow
 - `assets/css/header.css`: nav/header and theme toggle
+  - Mobile header keeps the cursor visible and shortens toggle label to `:light`/`:dark`
 - `assets/css/posts.css`: cards, article, and page title styles
+  - Mermaid blocks allow horizontal scrolling instead of clipping on narrow screens
 - `assets/css/footer.css`: footer layout
 - `assets/css/components.css`: reusable UI blocks (notice, etc.)
 - `assets/css/interactions.css`: subtle motion and interactive affordances
+  - Zoom overlay sizing accounts for mobile padding and dynamic viewport height
 
 Key ownership notes:
 

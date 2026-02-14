@@ -206,7 +206,8 @@
   }
 
   .nav__cursor {
-    display: none;
+    display: inline-block;
+    font-size: var(--font-size-nav-brand-mobile);
   }
 
   .theme-toggle {
@@ -218,6 +219,17 @@
 
   .theme-toggle__prefix {
     display: none;
+  }
+
+  .theme-toggle__value::before {
+    content: ":";
+    color: var(--accent);
+    opacity: 1;
+    font-weight: 600;
+  }
+
+  .theme-toggle__value::after {
+    content: "";
   }
 
   .nav__menu {

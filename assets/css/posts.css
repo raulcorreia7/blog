@@ -147,7 +147,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, var(--surface-accent-02), var(--bg-alt));
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
