@@ -1,48 +1,50 @@
-<title>{{ with .Title }}{{ . }} &ndash; {{end}}{{ .Site.Title }}</title>
-{{ with .Site.Params.about }}<meta name="description" content="{{ .description }}">{{ end }}
+{{ partial "head/meta.html" . }}
+<link rel="stylesheet" href="{{ "css/main.css" | relURL }}" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8"/>
-{{ if .Site.Params.noindex }}<meta name="robots" content="noindex" /> {{ end }}
-
-<!-- FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<!-- Academicons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<!-- risotto theme -->
-<link rel="stylesheet" href="{{ printf "css/palettes/%s.css" (.Site.Params.theme.palette | default "base16-dark") | relURL }}">
-<link rel="stylesheet" href="{{ "css/risotto.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
-
-<!-- Chroma syntax highlighting -->
-<link rel="stylesheet" href="{{ "css/chroma-dracula.css" | relURL }}">
-
-<!-- favicon -->
-{{ if os.FileExists "static/favicon.ico" }}<link rel="icon" href="{{ "favicon.ico" | relURL }}">{{ end }}
-{{ if os.FileExists "static/favicon-32x32.png" }}<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">{{ end }}
-{{ if os.FileExists "static/favicon-16x16.png" }}<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">{{ end }}
-{{ if os.FileExists "static/apple-touch-icon.png" }}<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">{{ end }}
-{{ if os.FileExists "static/site.webmanifest" }}<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">{{ end }}
-
-<!-- RSS -->
-{{ with .OutputFormats.Get "rss" -}}
-  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ if fileExists "static/favicon.ico" }}
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}" />
+{{ end }}
+{{ if fileExists "static/favicon-32x32.png" }}
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="{{ "favicon-32x32.png" | relURL }}"
+  />
+{{ end }}
+{{ if fileExists "static/favicon-16x16.png" }}
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="{{ "favicon-16x16.png" | relURL }}"
+  />
 {{ end }}
 
-<!-- Asciinema Player -->
-<script src="{{ "js/asciinema-player.js" | relURL }}"></script>
-
-<!-- OG meta -->
-<meta property="og:title" content="{{ with .Title }}{{ . }} &ndash; {{end}}{{ .Site.Title }}" />
-<meta property="og:url" content="{{ .Page.Permalink }}" />
-{{ if isset .Params "description" }}
-  <meta property="og:description" content="{{ with .Params.description }}{{ . }} &ndash; {{end}}"/> 
-{{ else }}
-  {{ with .Site.Params.about }}
-    <meta property="og:description" content="{{ .description }}"/> 
-  {{ end }}
+{{ $hasMermaid := and .IsPage (.HasShortcode "mermaid") }}
+{{ $hasAsciinema := and .IsPage (.HasShortcode "asciinema") }}
+{{ if or $hasMermaid $hasAsciinema }}
+  <script defer src="{{ "js/content-tools.js" | relURL }}"></script>
 {{ end }}
-{{ with .Site.LanguageCode}}<meta property="og:locale" content="{{ . }}" />{{ end }}
-{{ with .Site.Params.about }}<meta property="og:image" content="{{ with .logo_image }}{{ . | absURL }}{{ end }}" />{{ end }}
+
+{{ if $hasMermaid }}
+  <script defer src="{{ "js/mermaid-init.js" | relURL }}"></script>
+{{ end }}
+
+{{ if $hasAsciinema }}
+  {{ $asciinemaMajor := "3" }}
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/asciinema-player@{{ $asciinemaMajor }}/dist/bundle/asciinema-player.css"
+  />
+  <script defer src="https://cdn.jsdelivr.net/npm/asciinema-player@{{ $asciinemaMajor }}/dist/bundle/asciinema-player.min.js"></script>
+  <script defer src="{{ "js/asciinema-init.js" | relURL }}"></script>
+{{ end }}
+
+<script src="{{ "js/theme-bootstrap.js" | relURL }}"></script>

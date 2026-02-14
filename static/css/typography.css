@@ -1,0 +1,173 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 2rem 0 1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+h2 {
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1.125rem;
+}
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+}
+
+h1:first-child,
+h2:first-child {
+  margin-top: 0;
+}
+
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  color: var(--heading-mark-color);
+  opacity: var(--heading-mark-opacity);
+}
+h1::before {
+  content: "# ";
+}
+h2::before {
+  content: "## ";
+}
+h3::before {
+  content: "### ";
+}
+h4::before {
+  content: "#### ";
+}
+h5::before {
+  content: "##### ";
+}
+h6::before {
+  content: "###### ";
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  h1::before,
+  h2::before,
+  h3::before,
+  h4::before,
+  h5::before,
+  h6::before {
+    background: var(--heading-mark-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 1;
+  }
+}
+
+p {
+  margin: 1.25rem 0;
+}
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+strong {
+  font-weight: 600;
+}
+
+ul,
+ol {
+  margin: 1.25rem 0;
+  padding-left: 1.5rem;
+}
+li {
+  margin: 0.5rem 0;
+}
+ul li::marker {
+  content: "•";
+  color: var(--accent);
+}
+ol li::marker {
+  color: var(--accent);
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  background: var(--bg-alt);
+  color: var(--fg-muted);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--bg-alt);
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-sm);
+}
+pre {
+  background: var(--bg-alt);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+}
+pre code {
+  background: none;
+  padding: 0;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3rem 0;
+}
+
+table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  font-weight: 500;
+  background: var(--bg-alt);
+}
+td {
+  color: var(--fg-muted);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+}

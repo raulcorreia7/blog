@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $output := slice }}
+{{ range $posts }}
+{{ $output = $output | append (dict
+    "title" .Title
+    "url" .RelPermalink
+    "date" (.Date.Format "2006-01-02")
+    "description" .Description
+) }}
+{{ end }}
+{{ jsonify $output }}
+{{ end }}

@@ -1,0 +1,134 @@
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --transition: 0.15s ease;
+
+  --layout-max-width: 720px;
+  --layout-pad-y: 2rem;
+  --layout-pad-x: 1.5rem;
+  --layout-pad-mobile-y: 1.5rem;
+  --layout-pad-mobile-x: 1rem;
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+
+  --font-size-nav-brand: 1.5rem;
+  --font-size-nav-brand-mobile: 1.25rem;
+  --font-size-nav-link: 0.875rem;
+  --font-size-meta: 0.8125rem;
+  --font-size-tag: 0.68rem;
+
+  --heading-mark-opacity: 0.64;
+  --heading-mark-color: color-mix(in srgb, var(--accent) 58%, var(--fg-dim) 42%);
+
+  --nav-link-color: color-mix(in srgb, var(--fg) 70%, var(--fg-muted) 30%);
+  --date-color: color-mix(in srgb, var(--fg-muted) 72%, var(--fg) 28%);
+  --card-hover-bg: color-mix(in srgb, var(--bg-alt) 97%, var(--accent) 3%);
+  --card-hover-border: color-mix(in srgb, var(--border) 76%, var(--accent) 24%);
+  --card-hover-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+  --card-hover-translate-y: -2px;
+  --footer-color: color-mix(in srgb, var(--fg-muted) 72%, var(--fg) 28%);
+  --footer-link-color: color-mix(in srgb, var(--fg-muted) 74%, var(--fg) 26%);
+  --scroll-progress-height: 2px;
+  --scroll-progress-gradient: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 70%, transparent 30%),
+    color-mix(in srgb, var(--accent-hover) 72%, transparent 28%)
+  );
+  --stagger-offset: 8px;
+  --stagger-duration: 0.42s;
+
+  --bg: #121212;
+  --bg-alt: #1a1a1a;
+  --bg-code: #222222;
+  --border: #2a2a2a;
+  --fg: #e4e4e4;
+  --fg-muted: #9a9a9a;
+  --fg-dim: #5a5a5a;
+  --accent: #10b981;
+  --accent-hover: #34d399;
+  --accent-dim: #065f46;
+  --heading-mark-gradient: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 72%, var(--fg-muted) 28%) 0%,
+    color-mix(in srgb, var(--accent) 45%, var(--fg-dim) 55%) 62%,
+    color-mix(in srgb, var(--accent) 16%, transparent 84%) 85%,
+    transparent 100%
+  );
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg: #fefefe;
+    --bg-alt: #f7f7f7;
+    --bg-code: #efefef;
+    --border: #e2e2e2;
+    --fg: #1c1c1c;
+    --fg-muted: #4a4a4a;
+    --fg-dim: #8a8a8a;
+    --accent: #059669;
+    --accent-hover: #047857;
+    --accent-dim: #d1fae5;
+    --heading-mark-color: color-mix(in srgb, var(--accent) 60%, var(--fg-dim) 40%);
+    --nav-link-color: color-mix(in srgb, var(--fg) 66%, var(--fg-muted) 34%);
+    --date-color: color-mix(in srgb, var(--fg-muted) 68%, var(--fg) 32%);
+    --card-hover-bg: color-mix(in srgb, var(--bg-alt) 95%, var(--accent) 5%);
+    --card-hover-border: color-mix(in srgb, var(--border) 74%, var(--accent) 26%);
+    --card-hover-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    --footer-color: color-mix(in srgb, var(--fg-muted) 68%, var(--fg) 32%);
+    --footer-link-color: color-mix(in srgb, var(--fg-muted) 70%, var(--fg) 30%);
+    --scroll-progress-gradient: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent) 62%, transparent 38%),
+      color-mix(in srgb, var(--accent-hover) 68%, transparent 32%)
+    );
+    --heading-mark-gradient: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent) 74%, var(--fg-muted) 26%) 0%,
+      color-mix(in srgb, var(--accent-hover) 50%, var(--fg-dim) 50%) 62%,
+      color-mix(in srgb, var(--accent) 18%, transparent 82%) 85%,
+      transparent 100%
+    );
+  }
+}
+
+[data-theme="light"] {
+  --bg: #fefefe;
+  --bg-alt: #f7f7f7;
+  --bg-code: #efefef;
+  --border: #e2e2e2;
+  --fg: #1c1c1c;
+  --fg-muted: #4a4a4a;
+  --fg-dim: #8a8a8a;
+  --accent: #059669;
+  --accent-hover: #047857;
+  --accent-dim: #d1fae5;
+  --heading-mark-color: color-mix(in srgb, var(--accent) 60%, var(--fg-dim) 40%);
+  --nav-link-color: color-mix(in srgb, var(--fg) 66%, var(--fg-muted) 34%);
+  --date-color: color-mix(in srgb, var(--fg-muted) 68%, var(--fg) 32%);
+  --card-hover-bg: color-mix(in srgb, var(--bg-alt) 95%, var(--accent) 5%);
+  --card-hover-border: color-mix(in srgb, var(--border) 74%, var(--accent) 26%);
+  --card-hover-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  --footer-color: color-mix(in srgb, var(--fg-muted) 68%, var(--fg) 32%);
+  --footer-link-color: color-mix(in srgb, var(--fg-muted) 70%, var(--fg) 30%);
+  --scroll-progress-gradient: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 62%, transparent 38%),
+    color-mix(in srgb, var(--accent-hover) 68%, transparent 32%)
+  );
+  --heading-mark-gradient: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 74%, var(--fg-muted) 26%) 0%,
+    color-mix(in srgb, var(--accent-hover) 50%, var(--fg-dim) 50%) 62%,
+    color-mix(in srgb, var(--accent) 18%, transparent 82%) 85%,
+    transparent 100%
+  );
+}

@@ -1,9 +1,3 @@
-<ul>
-  {{ range first 5 (where site.RegularPages "Section" "posts") }}
-    <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <br>
-      <small class="text-muted">{{ .Date.Format "January 2, 2006" }}</small>
-    </li>
-  {{ end }}
-</ul>
+{{ $posts := where site.RegularPages "Section" "posts" }}
+{{ $recentPosts := first 5 ($posts.ByDate.Reverse) }}
+{{ partial "post-list.html" $recentPosts }}

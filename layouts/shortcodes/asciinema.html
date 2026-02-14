@@ -1,36 +1,27 @@
-{{ if .Get "preload" }}
-<div id="{{ .Get "key" }}"></div>
-<script>
-function initPlayer() {
-  if (typeof AsciinemaPlayer === 'undefined') {
-    setTimeout(initPlayer, 100);
-  } else {
-    AsciinemaPlayer.create('{{ printf "casts/%s.cast" (.Get "key") | relURL }}', document.getElementById('{{ .Get "key" }}'), {
-      preload: true,
-      rows: {{ .Get "rows" | default 24 }},
-      cols: {{ .Get "cols" | default 80 }},
-      autoplay: {{ .Get "autoplay" | default false }},
-      loop: {{ .Get "loop" | default false }}
-    });
-  }
-}
-window.addEventListener('load', initPlayer);
-</script>
-{{ else }}
-<div id="{{ .Get "key" }}"></div>
-<script>
-function initPlayer() {
-  if (typeof AsciinemaPlayer === 'undefined') {
-    setTimeout(initPlayer, 100);
-  } else {
-    AsciinemaPlayer.create('{{ printf "casts/%s.cast" (.Get "key") | relURL }}', document.getElementById('{{ .Get "key" }}'), {
-      rows: {{ .Get "rows" | default 24 }},
-      cols: {{ .Get "cols" | default 80 }},
-      autoplay: {{ .Get "autoplay" | default false }},
-      loop: {{ .Get "loop" | default false }}
-    });
-  }
-}
-window.addEventListener('load', initPlayer);
-</script>
+{{ $key := .Get "key" }}
+{{ if not $key }}
+  {{ errorf "asciinema shortcode requires 'key': %s" .Position }}
 {{ end }}
+
+{{ $cast := printf "casts/%s.cast" $key | relURL }}
+{{ $rows := .Get "rows" | default 24 }}
+
+{{ $autoplayRaw := lower (printf "%v" (.Get "autoplay" | default "false")) }}
+{{ $loopRaw := lower (printf "%v" (.Get "loop" | default "false")) }}
+{{ $preloadRaw := lower (printf "%v" (.Get "preload" | default "false")) }}
+
+{{ $autoplay := or (eq $autoplayRaw "true") (eq $autoplayRaw "1") }}
+{{ $loop := or (eq $loopRaw "true") (eq $loopRaw "1") }}
+{{ $preload := or (eq $preloadRaw "true") (eq $preloadRaw "1") }}
+
+{{ $id := printf "asciinema-%d" .Ordinal }}
+
+<div
+  id="{{ $id }}"
+  class="asciinema-embed"
+  data-cast-url="{{ $cast }}"
+  data-rows="{{ $rows }}"
+  data-autoplay="{{ if $autoplay }}true{{ else }}false{{ end }}"
+  data-loop="{{ if $loop }}true{{ else }}false{{ end }}"
+  data-preload="{{ if $preload }}true{{ else }}false{{ end }}"
+></div>

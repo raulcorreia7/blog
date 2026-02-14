@@ -1,0 +1,12 @@
+{{ define "main" }}
+  {{ $posts := .Pages.ByDate.Reverse }}
+
+  <h1 class="page__title">{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{ if gt (len $posts) 0 }}
+    <p class="page__count">{{ len $posts }} post{{ if gt (len $posts) 1 }}s{{ end }}</p>
+  {{ end }}
+
+  {{ partial "post-list.html" $posts }}
+{{ end }}

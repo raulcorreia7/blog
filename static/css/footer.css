@@ -1,0 +1,25 @@
+.footer {
+  font-size: var(--font-size-nav-link);
+  color: var(--footer-color);
+  text-align: center;
+}
+
+.footer__copyright {
+  margin-bottom: var(--space-md);
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.footer__social a {
+  color: var(--footer-link-color);
+  font-size: 1rem;
+}
+
+.footer__social a:hover {
+  color: var(--accent);
+}

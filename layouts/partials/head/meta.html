@@ -1,0 +1,28 @@
+{{ $pageTitle := .Site.Title }}
+{{ with .Title }}
+  {{ $pageTitle = printf "%s · %s" . $.Site.Title }}
+{{ end }}
+
+<title>{{ $pageTitle }}</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+{{ with .Site.Params.description }}
+  <meta name="description" content="{{ . }}" />
+{{ end }}
+
+{{ with .OutputFormats.Get "rss" }}
+  <link
+    rel="alternate"
+    type="{{ .MediaType.Type }}"
+    href="{{ .Permalink }}"
+    title="{{ site.Title }}"
+  />
+{{ end }}
+
+<meta property="og:title" content="{{ $pageTitle }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{ with or .Params.description .Site.Params.description }}
+  <meta property="og:description" content="{{ . }}" />
+{{ end }}
