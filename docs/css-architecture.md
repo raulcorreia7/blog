@@ -43,6 +43,7 @@ Key ownership notes:
 ## Conventions
 
 - Keep selectors component-scoped (`.post-card__*`, `.nav__*`).
+- Footer selectors are intentionally namespaced as `.site-footer*` (not generic `.footer*`) to reduce collisions with browser cosmetic-filter rules.
 - Prefer tokens to raw values.
 - Keep module ownership clear (avoid duplicating the same rule across files).
 - Respect reduced-motion (`prefers-reduced-motion`) for animations/transitions.

@@ -399,7 +399,7 @@ body.media-zoom-open {
   pointer-events: none;
 }
 
-.footer__social a {
+.site-footer__social a {
   display: inline-flex;
   align-items: center;
   border-radius: var(--radius-sm);
@@ -409,8 +409,8 @@ body.media-zoom-open {
     background var(--transition);
 }
 
-.footer__social a:hover,
-.footer__social a:focus-visible {
+.site-footer__social a:hover,
+.site-footer__social a:focus-visible {
   color: var(--accent);
   background: var(--surface-accent-14);
 }
@@ -442,7 +442,7 @@ body.media-zoom-open {
   .media-zoom-overlay,
   .heading-anchor,
   .code-copy,
-  .footer__social a {
+  .site-footer__social a {
     transition: none;
     transform: none;
     text-shadow: none;

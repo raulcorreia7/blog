@@ -1,14 +1,14 @@
-.footer {
+.site-footer {
   font-size: var(--font-size-nav-link);
   color: var(--footer-color);
   text-align: center;
 }
 
-.footer__copyright {
+.site-footer__copyright {
   margin-bottom: var(--space-md);
 }
 
-.footer__social {
+.site-footer__social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,7 @@
   line-height: 1.3;
 }
 
-.footer__social a {
+.site-footer__social a {
   display: inline-flex;
   align-items: center;
   gap: 0;
@@ -46,7 +46,7 @@
   color: var(--footer-link-color);
 }
 
-.footer__social a:hover .social-link__label,
-.footer__social a:focus-visible .social-link__label {
+.site-footer__social a:hover .social-link__label,
+.site-footer__social a:focus-visible .social-link__label {
   color: var(--accent);
 }

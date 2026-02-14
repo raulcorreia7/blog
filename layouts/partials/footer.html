@@ -1,5 +1,5 @@
-<footer class="footer">
-  <p class="footer__copyright">{{ .Site.Title }} · {{ now.Year }}</p>
+<footer class="site-footer">
+  <p class="site-footer__copyright">{{ .Site.Title }} · {{ now.Year }}</p>
   {{ $socialLinks := slice }}
   {{ with .Site.Params.social.github }}
     {{ $socialLinks = $socialLinks | append (dict "url" . "label" "github" "title" "GitHub" "rel" "me") }}
@@ -11,7 +11,7 @@
     {{ $socialLinks = $socialLinks | append (dict "url" .Permalink "label" "rss" "title" "RSS") }}
   {{ end }}
   {{ if gt (len $socialLinks) 0 }}
-    <nav class="footer__social" aria-label="Social links">
+    <nav class="site-footer__social" aria-label="Social links">
       {{- range $index, $link := $socialLinks -}}
         {{- if gt $index 0 -}}<span class="social-link__separator" aria-hidden="true"> | </span>{{- end -}}
         <a href="{{ $link.url }}" title="{{ $link.title }}" aria-label="{{ $link.title }}"{{ with $link.rel }} rel="{{ . }}"{{ end }}>

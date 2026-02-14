@@ -31,6 +31,7 @@ All notable changes to this project are documented in this file.
 - Extracted CI image optimization into `scripts/optimize-images.sh` and centralized workflow constants/timeouts.
 - Main content layout width increased (`--layout-max-width: 860px`) to improve readability on larger displays.
 - Footer social links switched to text labels (`:github | :linkedin | :rss`) to match terminal-first language.
+- Footer selectors renamed from generic `.footer*` to scoped `.site-footer*` to avoid browser extension cosmetic-filter collisions in production.
 - Mermaid diagrams now fit article width by default and open in the same zoom overlay used by images.
 - Added smooth media zoom overlay for article media (click + keyboard), with terminal-style close control (`:close [esc]`).
 - Revamp post CI/CD diagram and narrative updated to reflect PR preview deployments and current pipeline flow.
