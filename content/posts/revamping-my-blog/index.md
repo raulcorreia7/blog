@@ -42,18 +42,27 @@ C --> D[Custom theme rewrite]
 
 I refactored the GitHub Actions pipeline to make deployments predictable.
 
-Now builds, validation, optimization, and deploy are separated correctly. Critical checks still protect the pipeline, while non-critical optimization no longer blocks releases.
+Now linting, build, validation, link checks, optimization, and deploy are split into clear stages. Pushes to `master` deploy production, while pull requests deploy an isolated preview.
 
 {{< mermaid >}}
 flowchart LR
-A[Push to master] --> B[Build Hugo site]
-B --> C[Validate HTML]
-B --> D[Check links]
-B --> E[Optimize assets optional]
-C --> F[Deploy to GitHub Pages]
-E --> F
-F --> G[Custom domain raulcorreia.dev]
-H[Cloudflare DNS and SSL] --> G
+A[Push or Pull Request] --> B[Lint and format check]
+B --> C[Build Hugo site]
+C --> D[Validate HTML]
+C --> E[Check links]
+C --> F[Optimize assets]
+
+D --> G[Quality gates passed]
+E --> G
+F --> G
+
+G --> H{Event type}
+H -->|push to master| I[Deploy to GitHub Pages]
+H -->|pull request| J[Deploy preview]
+
+I --> K[Custom domain raulcorreia.dev]
+L[Cloudflare DNS and SSL] --> K
+J --> M[Preview URL]
 {{< /mermaid >}}
 
 ### Performance and Content Quality

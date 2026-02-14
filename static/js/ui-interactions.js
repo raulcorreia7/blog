@@ -135,6 +135,179 @@
     });
   }
 
+  function setupMediaZoom() {
+    var main = document.querySelector("main");
+    if (!main) {
+      return;
+    }
+
+    var overlay = document.createElement("div");
+    overlay.className = "media-zoom-overlay";
+    overlay.setAttribute("aria-hidden", "true");
+
+    var inner = document.createElement("div");
+    inner.className = "media-zoom-overlay__inner";
+
+    var closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.className = "media-zoom-overlay__close";
+    closeButton.setAttribute("aria-label", "Close zoomed media");
+
+    var closePrefix = document.createElement("span");
+    closePrefix.className = "media-zoom-overlay__close-prefix";
+    closePrefix.textContent = ":close";
+
+    var closeKey = document.createElement("span");
+    closeKey.className = "media-zoom-overlay__close-key";
+    closeKey.textContent = "[esc]";
+
+    closeButton.appendChild(closePrefix);
+    closeButton.appendChild(closeKey);
+
+    var frame = document.createElement("div");
+    frame.className = "media-zoom-overlay__frame";
+
+    inner.appendChild(closeButton);
+    inner.appendChild(frame);
+    overlay.appendChild(inner);
+    document.body.appendChild(overlay);
+
+    var activeSource = null;
+    var lastFocused = null;
+    var closeTimer = null;
+
+    function resetAfterClose() {
+      overlay.classList.remove("media-zoom-overlay--visible");
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("media-zoom-open");
+      frame.textContent = "";
+
+      if (activeSource) {
+        activeSource.setAttribute("aria-expanded", "false");
+      }
+
+      if (lastFocused && typeof lastFocused.focus === "function") {
+        lastFocused.focus();
+      }
+
+      activeSource = null;
+      lastFocused = null;
+      closeTimer = null;
+    }
+
+    function closeZoom() {
+      if (!overlay.classList.contains("media-zoom-overlay--visible")) {
+        return;
+      }
+
+      overlay.classList.remove("media-zoom-overlay--open");
+
+      if (closeTimer) {
+        window.clearTimeout(closeTimer);
+      }
+
+      if (reduceMotion) {
+        resetAfterClose();
+        return;
+      }
+
+      closeTimer = window.setTimeout(resetAfterClose, 220);
+    }
+
+    function openZoom(source) {
+      if (closeTimer) {
+        window.clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+
+      lastFocused = document.activeElement;
+      activeSource = source;
+      frame.textContent = "";
+
+      var clone = source.cloneNode(true);
+      clone.classList.remove("media-zoomable");
+      clone.removeAttribute("data-media-zoom-ready");
+      clone.removeAttribute("role");
+      clone.removeAttribute("tabindex");
+      clone.removeAttribute("aria-label");
+      clone.removeAttribute("aria-expanded");
+      frame.appendChild(clone);
+
+      overlay.classList.add("media-zoom-overlay--visible");
+      overlay.setAttribute("aria-hidden", "false");
+      document.body.classList.add("media-zoom-open");
+      source.setAttribute("aria-expanded", "true");
+
+      window.requestAnimationFrame(function () {
+        overlay.classList.add("media-zoom-overlay--open");
+      });
+
+      closeButton.focus({ preventScroll: true });
+    }
+
+    function bindTarget(target) {
+      if (target.dataset.mediaZoomReady === "true") {
+        return;
+      }
+
+      target.dataset.mediaZoomReady = "true";
+      target.setAttribute("tabindex", "0");
+      target.setAttribute("aria-label", "Open zoomed image");
+      target.setAttribute("aria-expanded", "false");
+    }
+
+    function bindTargets() {
+      main.querySelectorAll("img, .mermaid svg").forEach(bindTarget);
+    }
+
+    bindTargets();
+
+    new MutationObserver(function () {
+      bindTargets();
+    }).observe(main, {
+      childList: true,
+      subtree: true,
+    });
+
+    main.addEventListener("click", function (event) {
+      var target = event.target.closest("img, .mermaid svg");
+      if (!target || target.dataset.mediaZoomReady !== "true") {
+        return;
+      }
+
+      event.preventDefault();
+      openZoom(target);
+    });
+
+    main.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+
+      var target = event.target;
+      if (!target || target.dataset.mediaZoomReady !== "true") {
+        return;
+      }
+
+      event.preventDefault();
+      openZoom(target);
+    });
+
+    closeButton.addEventListener("click", closeZoom);
+
+    overlay.addEventListener("click", function (event) {
+      if (event.target === overlay) {
+        closeZoom();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeZoom();
+      }
+    });
+  }
+
   function setupScrollProgress() {
     var bar = document.querySelector("[data-scroll-progress]");
     var thumb = document.querySelector("[data-scroll-progress-thumb]");
@@ -267,6 +440,7 @@
     renderFontAwesomeIcons(document.body);
     setupHeadingAnchors();
     setupCodeCopy();
+    setupMediaZoom();
     setupScrollProgress();
     setupEntranceStagger();
   });
