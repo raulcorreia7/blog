@@ -11,7 +11,7 @@
     <div class="page">
       <header class="page__header">{{ partial "header.html" . }}</header>
       <main class="page__body">{{ block "main" . }}{{ end }}</main>
-      <div class="page__footer">{{ partial "footer.html" . }}</div>
+      <div class="page__meta">{{ partial "footer.html" . }}</div>
     </div>
     <script defer src="{{ partial "script-url.html" "js/theme.js" }}"></script>
     <script defer src="{{ partial "script-url.html" "js/ui-interactions.js" }}"></script>

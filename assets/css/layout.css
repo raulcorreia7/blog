@@ -17,7 +17,7 @@
   flex: 0 0 auto;
 }
 
-.page__footer {
+.page__meta {
   margin-top: var(--space-md);
   padding-top: var(--space-md);
   border-top: 1px solid var(--border);

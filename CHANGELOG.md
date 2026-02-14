@@ -32,6 +32,7 @@ All notable changes to this project are documented in this file.
 - Main content layout width increased (`--layout-max-width: 860px`) to improve readability on larger displays.
 - Footer social links switched to text labels (`:github | :linkedin | :rss`) to match terminal-first language.
 - Footer selectors renamed from generic `.footer*` to scoped `.site-footer*` to avoid browser extension cosmetic-filter collisions in production.
+- Footer area selectors and wrapper class now avoid `footer` naming entirely (`.site-meta*`, `.page__meta`) for stronger adblock compatibility.
 - CI pipeline lint step moved into the build job to remove duplicate Node dependency installs.
 - Build checkout switched back to shallow clone (removed `fetch-depth: 0`) to reduce runtime.
 - PR preview deployments now use the non-optimized site artifact; image optimization runs only for production deploys.
