@@ -4,9 +4,11 @@
   "scripts": {
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "sync:fontawesome": "./scripts/sync-fontawesome.sh"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.1",
     "prettier": "^3.2.5",
     "prettier-plugin-toml": "^2.0.6"
   }

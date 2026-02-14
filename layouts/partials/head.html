@@ -22,22 +22,8 @@
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" />
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.1/css/all.min.css"
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
+  href="{{ "css/fontawesome/all.min.css" | relURL }}"
 />
-<script>
-  window.FontAwesomeConfig = {
-    autoReplaceSvg: "nest",
-    observeMutations: true
-  };
-</script>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.1/js/all.min.js"
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-></script>
 
 {{ if fileExists "static/favicon.ico" }}
   <link rel="icon" href="{{ "favicon.ico" | relURL }}" />
