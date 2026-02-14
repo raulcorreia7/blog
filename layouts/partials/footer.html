@@ -5,11 +5,13 @@
     <a href="{{ . }}" rel="me" title="GitHub" aria-label="GitHub">
       <span class="social-link__prefix">:</span><span class="social-link__label">github</span>
     </a>
-    {{ end }} {{ with .Site.Params.social.linkedin }}
+    {{ end }}
+    {{ with .Site.Params.social.linkedin }}
     <a href="{{ . }}" rel="me" title="LinkedIn" aria-label="LinkedIn">
       <span class="social-link__prefix">:</span><span class="social-link__label">linkedin</span>
     </a>
-    {{ end }} {{ with .OutputFormats.Get "rss" }}
+    {{ end }}
+    {{ with .OutputFormats.Get "rss" }}
     <a href="{{ .Permalink }}" title="RSS" aria-label="RSS">
       <span class="social-link__prefix">:</span><span class="social-link__label">rss</span>
     </a>

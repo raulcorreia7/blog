@@ -18,6 +18,15 @@
 .footer__social a {
   color: var(--footer-link-color);
   font-size: 1rem;
+  margin: 0 0.5rem;
+}
+
+.footer__social a:first-child {
+  margin-left: 0;
+}
+
+.footer__social a:last-child {
+  margin-right: 0;
 }
 
 .footer__social a i,
