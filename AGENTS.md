@@ -18,8 +18,9 @@ High-signal guide for contributors and coding agents working in this repo.
 - Global shell: `layouts/_default/baseof.html`
 - Partials/components: `layouts/partials/`
 - Shortcodes: `layouts/shortcodes/`
-- Theme CSS entrypoint: `static/css/main.css`
-- Design tokens: `static/css/theme/variables.css`
+- Theme CSS modules: `assets/css/`
+- CSS bundle pipeline: `layouts/partials/head.html` (`resources.Concat | minify | fingerprint`)
+- Design tokens: `assets/css/theme/variables.css`
 - JS runtime:
   - `static/js/theme-bootstrap.js`
   - `static/js/theme.js`
