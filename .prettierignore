@@ -7,4 +7,4 @@ layouts/index.json
 
 # Font Awesome files (from npm package)
 static/css/fontawesome/
-static/fonts/
+static/css/webfonts/

@@ -8,7 +8,8 @@ set -e
 FONTAWESOME_VERSION="7.0.1"
 SOURCE_DIR="node_modules/@fortawesome/fontawesome-free"
 TARGET_CSS="static/css/fontawesome"
-TARGET_FONTS="static/fonts"
+# CSS uses ../webfonts/ relative path, so fonts must be in css/webfonts/
+TARGET_FONTS="static/css/webfonts"
 
 echo "Syncing Font Awesome v${FONTAWESOME_VERSION}..."
 
