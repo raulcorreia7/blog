@@ -35,7 +35,7 @@
   right: 0;
   bottom: -0.3rem;
   height: 1px;
-  background: color-mix(in srgb, var(--accent) 86%, transparent 14%);
+  background: var(--accent-line-strong);
   transform: scaleX(0);
   transform-origin: left center;
   opacity: 0.78;
@@ -75,7 +75,7 @@
 }
 
 .tag:hover {
-  text-shadow: 0 0 0.45rem color-mix(in srgb, var(--accent) 28%, transparent 72%);
+  text-shadow: 0 0 0.45rem var(--accent-shadow-soft);
 }
 
 .article__content a:not(.heading-anchor) {
@@ -143,7 +143,7 @@
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   background: transparent;
-  color: color-mix(in srgb, var(--fg-muted) 78%, var(--fg-dim) 22%);
+  color: var(--code-copy-color);
   opacity: 0.56;
   display: inline-flex;
   align-items: center;
@@ -160,8 +160,8 @@
 .article__content pre:hover .code-copy,
 .article__content pre:focus-within .code-copy {
   opacity: 0.9;
-  border-color: color-mix(in srgb, var(--border) 68%, var(--accent-dim) 32%);
-  background: color-mix(in srgb, var(--bg-alt) 90%, var(--accent) 10%);
+  border-color: var(--code-copy-border-hover);
+  background: var(--surface-accent-10);
   color: var(--fg);
 }
 
@@ -170,12 +170,12 @@
   opacity: 1;
   color: var(--fg);
   border-color: var(--accent-dim);
-  background: color-mix(in srgb, var(--bg-alt) 86%, var(--accent) 14%);
+  background: var(--surface-accent-14);
 }
 
 .code-copy[data-copy-state="copied"] {
   color: var(--accent);
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--border) 50%);
+  border-color: var(--code-copy-border-copied);
 }
 
 .code-copy[data-copy-state="error"] {
@@ -193,11 +193,7 @@
   padding: 0.85rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--bg-alt) 98%, var(--accent) 2%),
-    var(--bg-alt)
-  );
+  background: linear-gradient(135deg, var(--surface-accent-02), var(--bg-alt));
 }
 
 .footer__social a {
@@ -217,9 +213,9 @@
 .footer__social a:hover,
 .footer__social a:focus-visible {
   color: var(--accent);
-  background: color-mix(in srgb, var(--bg-alt) 82%, var(--accent) 18%);
+  background: var(--surface-accent-18);
   transform: translateY(-1px);
-  text-shadow: 0 0 0.35rem color-mix(in srgb, var(--accent) 32%, transparent 68%);
+  text-shadow: 0 0 0.35rem var(--accent-shadow-medium);
 }
 
 @media (prefers-reduced-motion: no-preference) {
