@@ -1,10 +1,10 @@
 # CSS Architecture
 
-Theme styles are split into focused modules imported by `static/css/main.css`.
+Theme styles are split into focused modules in `assets/css/` and bundled by Hugo Pipes into a single fingerprinted output file.
 
 ## Design Tokens
 
-Global tokens live in `static/css/theme/variables.css`:
+Global tokens live in `assets/css/theme/variables.css`:
 
 - Colors (`--bg`, `--fg`, `--accent`, etc.)
 - Typography scales (`--font-size-*`)
@@ -17,14 +17,19 @@ Rule: use tokens first; avoid hardcoded values unless scoped to a one-off compon
 
 ## Modules
 
-- `static/css/base.css`: reset and global element defaults
-- `static/css/layout.css`: page container/header/footer structure
-- `static/css/typography.css`: markdown/content typography
-- `static/css/header.css`: nav/header and theme toggle
-- `static/css/posts.css`: cards, article, and page title styles
-- `static/css/footer.css`: footer layout
-- `static/css/components.css`: reusable UI blocks (notice, etc.)
-- `static/css/interactions.css`: subtle motion and interactive affordances
+- `assets/css/base.css`: reset and global element defaults
+- `assets/css/layout.css`: page container/header/footer structure
+- `assets/css/typography.css`: markdown/content typography
+- `assets/css/header.css`: nav/header and theme toggle
+- `assets/css/posts.css`: cards, article, and page title styles
+- `assets/css/footer.css`: footer layout
+- `assets/css/components.css`: reusable UI blocks (notice, etc.)
+- `assets/css/interactions.css`: subtle motion and interactive affordances
+
+## Build Output
+
+- Bundling happens in `layouts/partials/head.html` with Hugo Pipes (`resources.Concat | minify | fingerprint`).
+- Pages load one local stylesheet (`/css/main.min.<hash>.css`) instead of a CSS `@import` chain.
 
 ## Conventions
 

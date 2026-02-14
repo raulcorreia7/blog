@@ -25,6 +25,7 @@ All notable changes to this project are documented in this file.
 - Theme toggle simplified to dark/light with dark default from config.
 - CI/CD pipeline reorganized into build, checks, optimization (optional), and deploy stages.
 - About page and post templates aligned to the same visual language.
+- CSS delivery switched to Hugo Pipes bundling (`resources.Concat | minify | fingerprint`) for single-file loading and cache-safe updates.
 
 ### Removed
 
