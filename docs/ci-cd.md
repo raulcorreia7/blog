@@ -16,13 +16,14 @@ The pipeline is defined in `.github/workflows/build-hugo-website.yml`.
    - Builds the Hugo site via `make all`.
    - Uploads `public/` as `hugo-site` artifact.
 2. `html-validate` and `link-check`
-   - Run from the build artifact.
+   - Run from the `hugo-site` build artifact.
 3. `optimize-assets` (production only)
    - Runs only on `master` pushes.
    - Optimizes image assets and uploads `hugo-site-optimized`.
 4. Deploy
    - `deploy` (master push): deploys optimized artifact to `gh-pages`.
    - `deploy-preview` (PR): deploys non-optimized artifact to `preview/<PR_NUMBER>`.
+   - `deploy-preview` posts a PR comment with the preview URL.
 
 ## Rationale
 

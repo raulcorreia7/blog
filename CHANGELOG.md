@@ -46,6 +46,7 @@ All notable changes to this project are documented in this file.
 - Mermaid diagrams now fit article width by default and open in the same zoom overlay used by images.
 - Added smooth media zoom overlay for article media (click + keyboard), with terminal-style close control (`:close [esc]`).
 - Revamp post CI/CD diagram and narrative updated to reflect PR preview deployments and current pipeline flow.
+- CI/CD documentation and revamp post wording refreshed to match the current artifact-driven workflow and deploy paths.
 - Added `docs/ci-cd.md` with updated job flow and deploy behavior.
 
 ### Removed

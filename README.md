@@ -57,7 +57,9 @@ make hooks
 - Workflow: `.github/workflows/build-hugo-website.yml`
 - Deploy target: GitHub Pages (`gh-pages`)
 - Production deploys on `master` pushes; pull requests publish preview deployments
+- Build is artifact-driven: lint + Hugo build run once, then HTML/link checks run from the uploaded artifact
 - Pull request previews skip image optimization for faster feedback; optimization runs only for production deploys.
+- Preview deploy path: `preview/<PR_NUMBER>/`
 - Production domain: `raulcorreia.dev` (DNS/SSL via Cloudflare)
 
 ## License

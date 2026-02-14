@@ -42,16 +42,19 @@ C --> D[Custom theme rewrite]
 
 I refactored the GitHub Actions pipeline to make deployments predictable.
 
-The flow is simple: one build path, shared checks, then event-based deploy behavior for preview vs production.
+The flow is simple and artifact-driven: one build path, shared checks, then event-based deploy behavior for preview vs production.
+
+The `build` job now runs lint + Hugo build once, uploads the site artifact, and both `html-validate` and `link-check` run from that same output. Pull requests deploy a preview from the non-optimized artifact, while pushes to `master` run image optimization first and deploy the optimized artifact to production.
 
 {{< mermaid >}}
 flowchart LR
 A[Push or Pull Request] --> B[Build + lint]
-B --> C[Validation checks]
-C --> D{Event type}
-D -->|Pull Request| E[Deploy preview]
-D -->|Push to master| F[Optimize images]
-F --> G[Deploy production]
+B --> C[Upload site artifact]
+C --> D[html-validate + link-check]
+D --> E{Event type}
+E -->|Pull Request| F[Deploy preview from build artifact]
+E -->|Push to master| G[Optimize images]
+G --> H[Deploy production]
 {{< /mermaid >}}
 
 ### Performance and Content Quality
@@ -67,3 +70,5 @@ This revamp removed a lot of hidden technical debt and gave me a cleaner base fo
 Kind regards,
 
 Raúl
+
+P.S. I'm really enjoying refactoring and updating tools with AI.
