@@ -27,24 +27,6 @@
   --font-size-tag: 0.68rem;
 
   --heading-mark-opacity: 0.64;
-  --heading-mark-color: color-mix(in srgb, var(--accent) 58%, var(--fg-dim) 42%);
-
-  --nav-link-color: color-mix(in srgb, var(--fg) 70%, var(--fg-muted) 30%);
-  --date-color: color-mix(in srgb, var(--fg-muted) 72%, var(--fg) 28%);
-  --card-hover-bg: color-mix(in srgb, var(--bg-alt) 97%, var(--accent) 3%);
-  --card-hover-border: color-mix(in srgb, var(--border) 76%, var(--accent) 24%);
-  --card-hover-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
-  --card-hover-translate-y: -2px;
-  --footer-color: color-mix(in srgb, var(--fg-muted) 72%, var(--fg) 28%);
-  --footer-link-color: color-mix(in srgb, var(--fg-muted) 74%, var(--fg) 26%);
-  --scroll-progress-height: 2px;
-  --scroll-progress-gradient: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--accent) 70%, transparent 30%),
-    color-mix(in srgb, var(--accent-hover) 72%, transparent 28%)
-  );
-  --stagger-offset: 8px;
-  --stagger-duration: 0.42s;
 
   --bg: #121212;
   --bg-alt: #1a1a1a;
@@ -56,13 +38,48 @@
   --accent: #10b981;
   --accent-hover: #34d399;
   --accent-dim: #065f46;
+
+  --heading-mark-color: #2f9171;
+  --nav-link-color: #cecece;
+  --date-color: #afafaf;
+  --card-hover-bg: #1a1f1d;
+  --card-hover-border: #234c3f;
+  --card-hover-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+  --card-hover-translate-y: -2px;
+  --footer-color: #afafaf;
+  --footer-link-color: #adadad;
+
+  --scroll-progress-height: 2px;
+  --scroll-progress-gradient: linear-gradient(
+    90deg,
+    rgba(16, 185, 129, 0.7),
+    rgba(52, 211, 153, 0.72)
+  );
+  --stagger-offset: 8px;
+  --stagger-duration: 0.42s;
+
   --heading-mark-gradient: linear-gradient(
     90deg,
-    color-mix(in srgb, var(--accent) 72%, var(--fg-muted) 28%) 0%,
-    color-mix(in srgb, var(--accent) 45%, var(--fg-dim) 55%) 62%,
-    color-mix(in srgb, var(--accent) 16%, transparent 84%) 85%,
+    #36b088 0%,
+    #39856c 62%,
+    rgba(16, 185, 129, 0.16) 85%,
     transparent 100%
   );
+
+  --accent-glow-weak: rgba(16, 185, 129, 0.06);
+  --accent-line-strong: rgba(16, 185, 129, 0.86);
+  --accent-shadow-soft: rgba(16, 185, 129, 0.28);
+  --accent-shadow-medium: rgba(16, 185, 129, 0.32);
+
+  --surface-accent-14: #193028;
+  --surface-accent-10: #191f1c;
+  --surface-accent-18: #18372d;
+  --surface-accent-02: #1a1d1c;
+
+  --border-muted: #2f2f2f;
+  --code-copy-color: #8c8c8c;
+  --code-copy-border-hover: #1f3b32;
+  --code-copy-border-copied: #1d7256;
 }
 
 @media (prefers-color-scheme: light) {
@@ -77,26 +94,43 @@
     --accent: #059669;
     --accent-hover: #047857;
     --accent-dim: #d1fae5;
-    --heading-mark-color: color-mix(in srgb, var(--accent) 60%, var(--fg-dim) 40%);
-    --nav-link-color: color-mix(in srgb, var(--fg) 66%, var(--fg-muted) 34%);
-    --date-color: color-mix(in srgb, var(--fg-muted) 68%, var(--fg) 32%);
-    --card-hover-bg: color-mix(in srgb, var(--bg-alt) 95%, var(--accent) 5%);
-    --card-hover-border: color-mix(in srgb, var(--border) 74%, var(--accent) 26%);
+
+    --heading-mark-color: #3a7d62;
+    --nav-link-color: #2c2c2c;
+    --date-color: #3b3b3b;
+    --card-hover-bg: #ebf2f0;
+    --card-hover-border: #a7cec3;
     --card-hover-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    --footer-color: color-mix(in srgb, var(--fg-muted) 68%, var(--fg) 32%);
-    --footer-link-color: color-mix(in srgb, var(--fg-muted) 70%, var(--fg) 30%);
+    --footer-color: #3b3b3b;
+    --footer-link-color: #3c3c3c;
+
     --scroll-progress-gradient: linear-gradient(
       90deg,
-      color-mix(in srgb, var(--accent) 62%, transparent 38%),
-      color-mix(in srgb, var(--accent-hover) 68%, transparent 32%)
+      rgba(5, 150, 105, 0.62),
+      rgba(4, 120, 87, 0.68)
     );
     --heading-mark-gradient: linear-gradient(
       90deg,
-      color-mix(in srgb, var(--accent) 74%, var(--fg-muted) 26%) 0%,
-      color-mix(in srgb, var(--accent-hover) 50%, var(--fg-dim) 50%) 62%,
-      color-mix(in srgb, var(--accent) 18%, transparent 82%) 85%,
+      #178261 0%,
+      #478171 62%,
+      rgba(5, 150, 105, 0.18) 85%,
       transparent 100%
     );
+
+    --accent-glow-weak: rgba(5, 150, 105, 0.06);
+    --accent-line-strong: rgba(5, 150, 105, 0.86);
+    --accent-shadow-soft: rgba(5, 150, 105, 0.28);
+    --accent-shadow-medium: rgba(5, 150, 105, 0.32);
+
+    --surface-accent-14: #d6e9e3;
+    --surface-accent-10: #dfede9;
+    --surface-accent-18: #cbe5dd;
+    --surface-accent-02: #f2f5f4;
+
+    --border-muted: #d7d7d7;
+    --code-copy-color: #585858;
+    --code-copy-border-hover: #ddeae3;
+    --code-copy-border-copied: #74bca6;
   }
 }
 
@@ -111,24 +145,41 @@
   --accent: #059669;
   --accent-hover: #047857;
   --accent-dim: #d1fae5;
-  --heading-mark-color: color-mix(in srgb, var(--accent) 60%, var(--fg-dim) 40%);
-  --nav-link-color: color-mix(in srgb, var(--fg) 66%, var(--fg-muted) 34%);
-  --date-color: color-mix(in srgb, var(--fg-muted) 68%, var(--fg) 32%);
-  --card-hover-bg: color-mix(in srgb, var(--bg-alt) 95%, var(--accent) 5%);
-  --card-hover-border: color-mix(in srgb, var(--border) 74%, var(--accent) 26%);
+
+  --heading-mark-color: #3a7d62;
+  --nav-link-color: #2c2c2c;
+  --date-color: #3b3b3b;
+  --card-hover-bg: #ebf2f0;
+  --card-hover-border: #a7cec3;
   --card-hover-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  --footer-color: color-mix(in srgb, var(--fg-muted) 68%, var(--fg) 32%);
-  --footer-link-color: color-mix(in srgb, var(--fg-muted) 70%, var(--fg) 30%);
+  --footer-color: #3b3b3b;
+  --footer-link-color: #3c3c3c;
+
   --scroll-progress-gradient: linear-gradient(
     90deg,
-    color-mix(in srgb, var(--accent) 62%, transparent 38%),
-    color-mix(in srgb, var(--accent-hover) 68%, transparent 32%)
+    rgba(5, 150, 105, 0.62),
+    rgba(4, 120, 87, 0.68)
   );
   --heading-mark-gradient: linear-gradient(
     90deg,
-    color-mix(in srgb, var(--accent) 74%, var(--fg-muted) 26%) 0%,
-    color-mix(in srgb, var(--accent-hover) 50%, var(--fg-dim) 50%) 62%,
-    color-mix(in srgb, var(--accent) 18%, transparent 82%) 85%,
+    #178261 0%,
+    #478171 62%,
+    rgba(5, 150, 105, 0.18) 85%,
     transparent 100%
   );
+
+  --accent-glow-weak: rgba(5, 150, 105, 0.06);
+  --accent-line-strong: rgba(5, 150, 105, 0.86);
+  --accent-shadow-soft: rgba(5, 150, 105, 0.28);
+  --accent-shadow-medium: rgba(5, 150, 105, 0.32);
+
+  --surface-accent-14: #d6e9e3;
+  --surface-accent-10: #dfede9;
+  --surface-accent-18: #cbe5dd;
+  --surface-accent-02: #f2f5f4;
+
+  --border-muted: #d7d7d7;
+  --code-copy-color: #585858;
+  --code-copy-border-hover: #ddeae3;
+  --code-copy-border-copied: #74bca6;
 }

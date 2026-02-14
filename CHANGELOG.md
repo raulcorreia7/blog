@@ -26,6 +26,8 @@ All notable changes to this project are documented in this file.
 - CI/CD pipeline reorganized into build, checks, optimization (optional), and deploy stages.
 - About page and post templates aligned to the same visual language.
 - CSS delivery switched to Hugo Pipes bundling (`resources.Concat | minify | fingerprint`) for single-file loading and cache-safe updates.
+- Removed CSS `color-mix()` usage in theme styles to avoid parser warnings and improve browser compatibility.
+- Simplified CI jobs by removing redundant checkouts in artifact-only validation steps.
 
 ### Removed
 

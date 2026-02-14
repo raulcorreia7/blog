@@ -32,7 +32,7 @@
   font-family: var(--font-mono);
   font-size: var(--font-size-nav-brand);
   font-weight: 600;
-  text-shadow: 0 0 0.2rem color-mix(in srgb, var(--accent) 6%, transparent 94%);
+  text-shadow: 0 0 0.2rem var(--accent-glow-weak);
 }
 
 .nav__logo:hover {
@@ -110,7 +110,7 @@
 
 .theme-toggle:hover {
   color: var(--fg);
-  background: color-mix(in srgb, var(--bg-alt) 86%, var(--accent) 14%);
+  background: var(--surface-accent-14);
   border-color: var(--accent-dim);
 }
 
@@ -171,7 +171,7 @@
 .nav__item--about {
   margin-left: auto;
   padding-left: 0.72rem;
-  border-left: 1px solid color-mix(in srgb, var(--border) 88%, var(--fg-dim) 12%);
+  border-left: 1px solid var(--border-muted);
 }
 
 .nav__link {
