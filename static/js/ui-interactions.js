@@ -1,9 +1,9 @@
 (function () {
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ICONS = {
-    idle: '<i class="fa-regular fa-copy" aria-hidden="true"></i>',
-    copied: '<i class="fa-solid fa-check" aria-hidden="true"></i>',
-    error: '<i class="fa-solid fa-xmark" aria-hidden="true"></i>',
+    idle: '<i class="fa-regular fa-copy far" aria-hidden="true"></i>',
+    copied: '<i class="fa-solid fa-check fas" aria-hidden="true"></i>',
+    error: '<i class="fa-solid fa-xmark fas" aria-hidden="true"></i>',
   };
 
   function onReady(callback) {
