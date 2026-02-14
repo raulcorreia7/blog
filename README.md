@@ -13,6 +13,7 @@ Personal blog built with Hugo and a custom terminal-first theme.
 - Lightweight JS modules for theme + UI interactions
 - Content plugins for Mermaid and Asciinema
 - Global image/diagram zoom overlay with keyboard support
+- Adblock-safe site meta fallback that preserves semantic `<footer>` markup
 - GitHub Actions pipeline for build, validation, and deploy
 
 ## Local Development

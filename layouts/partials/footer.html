@@ -1,4 +1,4 @@
-<div class="site-meta" role="contentinfo">
+<footer class="site-meta" data-site-meta>
   <p class="site-meta__copyright">{{ .Site.Title }} · {{ now.Year }}</p>
   {{ $socialLinks := slice }}
   {{ with .Site.Params.social.github }}
@@ -20,4 +20,4 @@
       {{- end -}}
     </nav>
   {{ end }}
-</div>
+</footer>

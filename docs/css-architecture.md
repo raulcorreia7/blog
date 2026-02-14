@@ -34,6 +34,7 @@ Key ownership notes:
 
 - Mermaid framing/sizing is defined in `assets/css/posts.css`
 - Hover cues, zoom overlay, and interaction motion live in `assets/css/interactions.css`
+- `static/js/ui-interactions.js` includes a site-meta fallback that replaces a hidden `<footer>` with an equivalent `div[role="contentinfo"]`.
 
 ## Build Output
 

@@ -42,32 +42,21 @@ C --> D[Custom theme rewrite]
 
 I refactored the GitHub Actions pipeline to make deployments predictable.
 
-Now linting, build, validation, link checks, optimization, and deploy are split into clear stages. Pushes to `master` deploy production, while pull requests deploy an isolated preview.
+The flow is simple: one build path, shared checks, then event-based deploy behavior for preview vs production.
 
 {{< mermaid >}}
 flowchart LR
-A[Push or Pull Request] --> B[Lint and format check]
-B --> C[Build Hugo site]
-C --> D[Validate HTML]
-C --> E[Check links]
-C --> F[Optimize assets]
-
-D --> G[Quality gates passed]
-E --> G
-F --> G
-
-G --> H{Event type}
-H -->|push to master| I[Deploy to GitHub Pages]
-H -->|pull request| J[Deploy preview]
-
-I --> K[Custom domain raulcorreia.dev]
-L[Cloudflare DNS and SSL] --> K
-J --> M[Preview URL]
+A[Push or Pull Request] --> B[Build + lint]
+B --> C[Validation checks]
+C --> D{Event type}
+D -->|Pull Request| E[Deploy preview]
+D -->|Push to master| F[Optimize images]
+F --> G[Deploy production]
 {{< /mermaid >}}
 
 ### Performance and Content Quality
 
-I optimized images (**2.4MB -> 1.1MB**) and cleaned up existing posts so formatting, categories, and content quality are more consistent across the whole blog.
+I optimized images (**~5MB -> ~1MB**) and cleaned up existing posts so formatting, categories, and content quality are more consistent across the whole blog.
 
 ## Result
 

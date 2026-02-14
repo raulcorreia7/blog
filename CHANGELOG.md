@@ -33,6 +33,7 @@ All notable changes to this project are documented in this file.
 - Footer social links switched to text labels (`:github | :linkedin | :rss`) to match terminal-first language.
 - Footer selectors renamed from generic `.footer*` to scoped `.site-footer*` to avoid browser extension cosmetic-filter collisions in production.
 - Footer area selectors and wrapper class now avoid `footer` naming entirely (`.site-meta*`, `.page__meta`) for stronger adblock compatibility.
+- Semantic footer markup restored (`<footer class="site-meta">`) with JS fallback to `div[role="contentinfo"]` when cosmetic filters hide the footer element.
 - CI pipeline lint step moved into the build job to remove duplicate Node dependency installs.
 - Build checkout switched back to shallow clone (removed `fetch-depth: 0`) to reduce runtime.
 - PR preview deployments now use the non-optimized site artifact; image optimization runs only for production deploys.

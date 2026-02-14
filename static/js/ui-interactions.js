@@ -403,6 +403,30 @@
     window.addEventListener("resize", update);
   }
 
+  function setupSiteMetaFallback() {
+    var meta = document.querySelector("[data-site-meta]");
+    if (!meta || meta.tagName !== "FOOTER") {
+      return;
+    }
+
+    var computed = window.getComputedStyle(meta);
+    var isHiddenByFilter =
+      computed.display === "none" ||
+      computed.visibility === "hidden" ||
+      meta.getClientRects().length === 0;
+
+    if (!isHiddenByFilter) {
+      return;
+    }
+
+    var fallback = document.createElement("div");
+    fallback.className = meta.className;
+    fallback.setAttribute("role", "contentinfo");
+    fallback.setAttribute("data-site-meta-fallback", "true");
+    fallback.innerHTML = meta.innerHTML;
+    meta.replaceWith(fallback);
+  }
+
   function setupEntranceStagger() {
     if (reduceMotion) {
       return;
@@ -438,6 +462,7 @@
 
   onReady(function () {
     renderFontAwesomeIcons(document.body);
+    setupSiteMetaFallback();
     setupHeadingAnchors();
     setupCodeCopy();
     setupMediaZoom();
