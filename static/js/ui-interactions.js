@@ -129,6 +129,11 @@
 
     var root = bar.parentElement;
     var rootComputedStyle = window.getComputedStyle(document.documentElement);
+    var markerOffset = 0;
+    var railHeight = 0;
+    var targetProgress = 0;
+    var currentProgress = 0;
+    var isAnimating = false;
 
     function toPixels(value) {
       if (!value) {
@@ -149,17 +154,46 @@
       return parseFloat(normalized) || 0;
     }
 
-    function update() {
-      var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      var markerOffset = toPixels(
+    function measureRail() {
+      markerOffset = toPixels(
         window.getComputedStyle(root).getPropertyValue("--scroll-marker-offset")
       );
-      var railHeight = Math.max(0, root.clientHeight - markerOffset * 2);
+      railHeight = Math.max(0, root.clientHeight - markerOffset * 2);
+    }
+
+    function applyProgress(progress) {
+      root.classList.toggle("is-start", progress <= 0.001);
+      root.classList.toggle("is-end", progress >= 0.999);
+      bar.style.transform = "scaleY(" + progress.toFixed(4) + ")";
+      if (thumb) {
+        thumb.style.top = (markerOffset + railHeight * progress).toFixed(2) + "px";
+      }
+    }
+
+    function animateProgress() {
+      var delta = targetProgress - currentProgress;
+      if (Math.abs(delta) <= 0.001) {
+        currentProgress = targetProgress;
+        applyProgress(currentProgress);
+        isAnimating = false;
+        return;
+      }
+
+      currentProgress += delta * 0.18;
+      applyProgress(currentProgress);
+      window.requestAnimationFrame(animateProgress);
+    }
+
+    function update() {
+      measureRail();
+      var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
       if (maxScroll <= 0) {
         root.classList.add("is-hidden");
         root.classList.add("is-start");
         root.classList.remove("is-end");
+        targetProgress = 0;
+        currentProgress = 0;
         bar.style.transform = "scaleY(0)";
         if (thumb) {
           thumb.style.top = markerOffset + "px";
@@ -167,13 +201,12 @@
         return;
       }
 
-      var progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+      targetProgress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
       root.classList.remove("is-hidden");
-      root.classList.toggle("is-start", progress <= 0.001);
-      root.classList.toggle("is-end", progress >= 0.999);
-      bar.style.transform = "scaleY(" + progress.toFixed(4) + ")";
-      if (thumb) {
-        thumb.style.top = (markerOffset + railHeight * progress).toFixed(2) + "px";
+
+      if (!isAnimating) {
+        isAnimating = true;
+        window.requestAnimationFrame(animateProgress);
       }
     }
 
