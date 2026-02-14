@@ -1,0 +1,8 @@
+{{- $path := . -}}
+{{- $staticPath := printf "static/%s" $path -}}
+{{- if fileExists $staticPath -}}
+  {{- $hash := substr (md5 (readFile $staticPath)) 0 16 -}}
+  {{- printf "%s?v=%s" ($path | relURL) $hash -}}
+{{- else -}}
+  {{- $path | relURL -}}
+{{- end -}}
