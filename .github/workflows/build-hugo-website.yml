@@ -72,6 +72,14 @@ jobs:
           name: hugo-site
           path: ./public
 
+      - name: Install ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          command -v mogrify
+          mogrify -version
+        shell: bash
+
       - name: Optimize Images
         run: |
           #!/bin/bash
