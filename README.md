@@ -12,6 +12,7 @@ Personal blog built with Hugo and a custom terminal-first theme.
 - Modular CSS architecture with shared design tokens
 - Lightweight JS modules for theme + UI interactions
 - Content plugins for Mermaid and Asciinema
+- Global image/diagram zoom overlay with keyboard support
 - GitHub Actions pipeline for build, validation, and deploy
 
 ## Local Development
@@ -53,6 +54,7 @@ make hooks
 
 - Workflow: `.github/workflows/build-hugo-website.yml`
 - Deploy target: GitHub Pages (`gh-pages`)
+- Production deploys on `master` pushes; pull requests publish preview deployments
 - Production domain: `raulcorreia.dev` (DNS/SSL via Cloudflare)
 
 ## License

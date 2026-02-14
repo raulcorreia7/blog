@@ -43,6 +43,14 @@ Theme handling is intentionally separate from plugin runtime:
   - scroll progress bar
   - heading anchors
   - code-copy button state
+  - media zoom overlay for article images and Mermaid SVG outputs
   - entrance stagger animation
+
+Media zoom behavior details:
+
+- binds to `main img` and `.mermaid svg` (including async-rendered diagrams)
+- supports mouse, keyboard (`Enter`/`Space`), and close via `Esc`
+- uses a shared overlay with terminal-style close affordance (`:close [esc]`)
+- respects `prefers-reduced-motion`
 
 Design principle: keep each behavior small and independent, avoid framework coupling.

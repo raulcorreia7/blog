@@ -18,6 +18,8 @@ Notes:
 - Mermaid is loaded from jsDelivr as ESM (`mermaid@11`).
 - Rendering is theme-aware and re-renders on dark/light switch.
 - Runtime wiring uses the shared plugin framework (`static/js/content-tools.js` + `static/js/mermaid-init.js`).
+- Diagrams fit the content width by default (no horizontal scroll by default).
+- Diagrams can be opened in the global media zoom overlay (same interaction as post images).
 
 ## Asciinema
 

@@ -13,6 +13,10 @@ Global tokens live in `assets/css/theme/variables.css`:
 - Heading mark styling (`--heading-mark-*`)
 - Interaction tuning (`--card-hover-*`, `--scroll-progress-*`, `--stagger-*`)
 
+Current layout baseline:
+
+- `--layout-max-width: 860px`
+
 Rule: use tokens first; avoid hardcoded values unless scoped to a one-off component.
 
 ## Modules
@@ -25,6 +29,11 @@ Rule: use tokens first; avoid hardcoded values unless scoped to a one-off compon
 - `assets/css/footer.css`: footer layout
 - `assets/css/components.css`: reusable UI blocks (notice, etc.)
 - `assets/css/interactions.css`: subtle motion and interactive affordances
+
+Key ownership notes:
+
+- Mermaid framing/sizing is defined in `assets/css/posts.css`
+- Hover cues, zoom overlay, and interaction motion live in `assets/css/interactions.css`
 
 ## Build Output
 

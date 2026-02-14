@@ -23,12 +23,17 @@ All notable changes to this project are documented in this file.
 - Default syntax highlighting style set to `tokyonight-night`.
 - Header/nav/footer/card layout refined for consistent terminal-first visual hierarchy.
 - Theme toggle simplified to dark/light with dark default from config.
-- CI/CD pipeline reorganized into build, checks, optimization (optional), and deploy stages.
+- CI/CD pipeline reorganized into lint, build, quality gates, optimization, and deploy stages.
 - About page and post templates aligned to the same visual language.
 - CSS delivery switched to Hugo Pipes bundling (`resources.Concat | minify | fingerprint`) for single-file loading and cache-safe updates.
 - Removed CSS `color-mix()` usage in theme styles to avoid parser warnings and improve browser compatibility.
 - Simplified CI jobs by removing redundant checkouts in artifact-only validation steps.
 - Extracted CI image optimization into `scripts/optimize-images.sh` and centralized workflow constants/timeouts.
+- Main content layout width increased (`--layout-max-width: 860px`) to improve readability on larger displays.
+- Footer social links switched to text labels (`:github | :linkedin | :rss`) to match terminal-first language.
+- Mermaid diagrams now fit article width by default and open in the same zoom overlay used by images.
+- Added smooth media zoom overlay for article media (click + keyboard), with terminal-style close control (`:close [esc]`).
+- Revamp post CI/CD diagram and narrative updated to reflect PR preview deployments and current pipeline flow.
 
 ### Removed
 
