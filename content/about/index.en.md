@@ -2,20 +2,18 @@
 title: "About"
 date: 2020-12-02
 draft: false
-
-lightgallery: true
 ---
 
 {{< figure src="about_image.jpg" alt="Raúl Correia profile photo" >}}
 
-&nbsp;
+Hello, I'm Raúl.
 
-This blog was created out of need to document my thoughs, projects and ideias to my friends and family.Through all my years, out of necessity i built project or solved problems  and never documented them.
+I created this blog to document projects, lessons learned, and the reasoning behind technical decisions. For years I built things, solved problems, and moved on without writing any of it down.
 
-While growing up i always asked everyone on the **why** of things, and quickly, i concluded that people do not care about the **whys**. I believe on understanding the **why**, because after deeper understanding, the solution becomes obvious and you gain another tool in your belt.
+I care a lot about the **why** behind solutions. Once you understand the why, implementation gets simpler, and you keep that knowledge for the next problem.
 
-The desire of this blog is share the solutions to the world and feed the hunger of **whys** of everyone that needs it, like who i was in the past.
+This space is where I share those whys, along with practical write-ups and ideas from my day-to-day work.
 
-King regards,
+Kind regards,
 
 Raúl Correia
