@@ -28,6 +28,7 @@ All notable changes to this project are documented in this file.
 - CSS delivery switched to Hugo Pipes bundling (`resources.Concat | minify | fingerprint`) for single-file loading and cache-safe updates.
 - Removed CSS `color-mix()` usage in theme styles to avoid parser warnings and improve browser compatibility.
 - Simplified CI jobs by removing redundant checkouts in artifact-only validation steps.
+- Extracted CI image optimization into `scripts/optimize-images.sh` and centralized workflow constants/timeouts.
 
 ### Removed
 
