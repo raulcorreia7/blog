@@ -163,6 +163,7 @@ jobs:
         with:
           root: ./public
           format: json
+          skip_git_check: true
         continue-on-error: false
 
   # Deployment job - only runs on master branch after all checks pass
