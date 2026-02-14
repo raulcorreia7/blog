@@ -163,19 +163,26 @@
   width: min(100%, 420px);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .post-card {
-    padding: 1.1rem;
+    padding: 1.05rem;
   }
   .post-card__header {
     grid-template-columns: 1fr;
-    row-gap: 0.2rem;
+    row-gap: 0.26rem;
   }
   .post-card__date {
     font-size: 0.75rem;
+    justify-self: start;
+    text-align: left;
+    margin-top: 0;
   }
   .post-card__excerpt {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
+    text-indent: 0;
+  }
+  .post-card__title a::before {
+    content: "## ";
   }
 
   .article__title-row {
