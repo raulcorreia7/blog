@@ -45,6 +45,20 @@
     });
   }
 
+  function renderFontAwesomeIcons(root) {
+    if (
+      !window.FontAwesome ||
+      !window.FontAwesome.dom ||
+      typeof window.FontAwesome.dom.i2svg !== "function"
+    ) {
+      return;
+    }
+
+    window.FontAwesome.dom.i2svg({
+      node: root || document.body,
+    });
+  }
+
   function setCopyState(button, state) {
     var nextState = state === "copied" || state === "error" ? state : "idle";
     var label = "Copy code block";
@@ -58,6 +72,7 @@
     button.innerHTML = ICONS[nextState];
     button.setAttribute("aria-label", label);
     button.title = label;
+    renderFontAwesomeIcons(button);
   }
 
   function setupHeadingAnchors() {
@@ -249,6 +264,7 @@
   }
 
   onReady(function () {
+    renderFontAwesomeIcons(document.body);
     setupHeadingAnchors();
     setupCodeCopy();
     setupScrollProgress();
