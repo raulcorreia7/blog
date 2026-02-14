@@ -13,7 +13,7 @@
       <main class="page__body">{{ block "main" . }}{{ end }}</main>
       <div class="page__footer">{{ partial "footer.html" . }}</div>
     </div>
-    <script defer src="{{ "js/theme.js" | relURL }}"></script>
-    <script defer src="{{ "js/ui-interactions.js" | relURL }}"></script>
+    <script defer src="{{ partial "script-url.html" "js/theme.js" }}"></script>
+    <script defer src="{{ partial "script-url.html" "js/ui-interactions.js" }}"></script>
   </body>
 </html>
