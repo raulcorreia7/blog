@@ -404,6 +404,8 @@ So the split became clear: **heuristics for the bulk, LLM-assisted overrides for
 
 ## How It Works
 
+{{< video src="theme-browser.mp4" >}}
+
 From the user's perspective, the flow is small, but there are a few different paths through it. You can filter, move through the list, preview a theme temporarily and return to the editor, install a theme and keep browsing, or confirm the current selection and both apply and persist it.
 
 ```text
