@@ -15,6 +15,8 @@ In practice, it was awkward. Every time I wanted to try a theme, I had to leave 
 
 What bothered me was not that the workflow was technically difficult. It was that it constantly broke flow. Theme selection felt like a browser task when it should have felt like an editor task. I built this because I just wanted to find a theme I like in my editor.
 
+## Demo
+
 {{< video src="theme-browser.mp4" >}}
 
 ## The Problem
