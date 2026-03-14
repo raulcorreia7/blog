@@ -248,3 +248,133 @@
   margin-bottom: 2rem;
   font-size: 0.875rem;
 }
+
+.toc {
+  margin: 1.5rem 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-alt);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  max-width: 280px;
+  font-size: 0.85rem;
+}
+
+.toc__title {
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  color: var(--fg-muted);
+  list-style: none;
+  margin-bottom: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  display: block;
+}
+
+.toc__title::-webkit-details-marker {
+  display: none;
+}
+
+.toc__title::after {
+  content: " ▾";
+  float: right;
+  font-size: 0.65rem;
+  opacity: 0.5;
+}
+
+details[open] .toc__title {
+  margin-bottom: 0.5rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+details[open] .toc__title::after {
+  content: " ▴";
+}
+
+.toc nav {
+  padding-top: 0.4rem;
+}
+
+.toc nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc nav ul ul {
+  padding-left: 0.75rem;
+  margin-top: 0;
+  border-left: 1px solid var(--border);
+  margin-left: 0.3rem;
+}
+
+.toc nav li {
+  margin: 0.15rem 0;
+  line-height: 1.4;
+}
+
+.toc nav a {
+  color: var(--fg-muted);
+  font-size: 0.8rem;
+  text-decoration: none;
+  display: inline;
+}
+
+.toc nav a:hover {
+  color: var(--accent);
+}
+
+.toc nav > ul > li > a {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.sources {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.sources__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.sources__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sources__list li {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  margin: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.sources__list li::before {
+  content: attr(data-ref);
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.source-ref {
+  color: var(--accent);
+  font-size: 0.75em;
+  vertical-align: super;
+  text-decoration: none;
+  margin: 0 0.1em;
+}
+
+.source-ref:hover {
+  text-decoration: underline;
+}

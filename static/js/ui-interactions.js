@@ -1,9 +1,9 @@
 (function () {
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ICONS = {
-    idle: '<i aria-hidden="true">+</i>',
-    copied: '<i aria-hidden="true">v</i>',
-    error: '<i aria-hidden="true">!</i>',
+    idle: '<i aria-hidden="true">⧉</i>',
+    copied: '<i aria-hidden="true">✓</i>',
+    error: '<i aria-hidden="true">✗</i>',
   };
 
   function onReady(callback) {
