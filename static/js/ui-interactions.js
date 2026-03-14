@@ -246,7 +246,11 @@
 
       target.dataset.mediaZoomReady = "true";
       target.setAttribute("tabindex", "0");
-      target.setAttribute("aria-label", "Open zoomed image");
+      if (target.classList.contains("video-zoom-btn")) {
+        target.setAttribute("aria-label", "Expand video");
+      } else {
+        target.setAttribute("aria-label", "Open zoomed image");
+      }
       target.setAttribute("aria-expanded", "false");
     }
 

@@ -52,24 +52,6 @@
   />
 {{ end }}
 
-{{ $hasMermaid := and .IsPage (.HasShortcode "mermaid") }}
-{{ $hasAsciinema := and .IsPage (.HasShortcode "asciinema") }}
-{{ if or $hasMermaid $hasAsciinema }}
-  <script defer src="{{ partial "script-url.html" "js/content-tools.js" }}"></script>
-{{ end }}
-
-{{ if $hasMermaid }}
-  <script defer src="{{ partial "script-url.html" "js/mermaid-init.js" }}"></script>
-{{ end }}
-
-{{ if $hasAsciinema }}
-  {{ $asciinemaMajor := "3" }}
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/asciinema-player@{{ $asciinemaMajor }}/dist/bundle/asciinema-player.css"
-  />
-  <script defer src="https://cdn.jsdelivr.net/npm/asciinema-player@{{ $asciinemaMajor }}/dist/bundle/asciinema-player.min.js"></script>
-  <script defer src="{{ partial "script-url.html" "js/asciinema-init.js" }}"></script>
-{{ end }}
+{{ partial "content-dependencies.html" . }}
 
 <script>{{ readFile "static/js/theme-bootstrap.js" | safeJS }}</script>

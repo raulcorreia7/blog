@@ -1,12 +1,8 @@
-<div class="video-wrapper">
-  <div class="video-spinner"></div>
-  <video controls preload="metadata" {{ with .Get "class" }}class="{{ . }}"{{ end }}>
+<div class="video-wrapper" data-video-scale="1">
+  <div class="video-spinner" aria-hidden="true"></div>
+  <video data-plyr-config='{"controls": ["play-large","play","progress","current-time","duration","mute","volume","settings","fullscreen"],"muted":true}' preload="metadata" {{ with .Get "class" }}class="{{ . }}"{{ end }}>
     <source src="{{ .Get "src" }}" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <button type="button" class="video-expand-btn" aria-label="Expand video"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
-<script>
-  document.currentScript.previousElementSibling.addEventListener('loadeddata', function() {
-    this.parentElement.classList.add('loaded');
-  }, { once: true });
-</script>
