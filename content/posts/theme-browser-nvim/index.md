@@ -15,6 +15,8 @@ In practice, it was awkward. Every time I wanted to try a theme, I had to leave 
 
 What bothered me was not that the workflow was technically difficult. It was that it constantly broke flow. Theme selection felt like a browser task when it should have felt like an editor task. I built this because I just wanted to find a theme I like in my editor.
 
+{{< video src="theme-browser.mp4" >}}
+
 ## The Problem
 
 The normal workflow for trying a theme looked something like this:
@@ -403,8 +405,6 @@ The heuristics are good at scale and handle the repetitive cases cheaply. The ag
 So the split became clear: **heuristics for the bulk, LLM-assisted overrides for the messy edges**. That was the right trade-off for this project. Not fully automatic. Not perfect. Just maintainable.
 
 ## How It Works
-
-{{< video src="theme-browser.mp4" >}}
 
 From the user's perspective, the flow is small, but there are a few different paths through it. You can filter, move through the list, preview a theme temporarily and return to the editor, install a theme and keep browsing, or confirm the current selection and both apply and persist it.
 

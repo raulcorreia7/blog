@@ -1,4 +1,12 @@
-<video controls preload="metadata" {{ with .Get "class" }}class="{{ . }}"{{ end }}>
-  <source src="{{ .Get "src" }}" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<div class="video-wrapper">
+  <div class="video-spinner"></div>
+  <video controls preload="metadata" {{ with .Get "class" }}class="{{ . }}"{{ end }}>
+    <source src="{{ .Get "src" }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<script>
+  document.currentScript.previousElementSibling.addEventListener('loadeddata', function() {
+    this.parentElement.classList.add('loaded');
+  }, { once: true });
+</script>

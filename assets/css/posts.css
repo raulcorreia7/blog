@@ -378,3 +378,46 @@ details[open] .toc__title::after {
 .source-ref:hover {
   text-decoration: underline;
 }
+
+.video-wrapper {
+  position: relative;
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+
+.video-wrapper video {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.video-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: video-spin 1s linear infinite;
+}
+
+.video-wrapper.loaded .video-spinner {
+  display: none;
+}
+
+@keyframes video-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-spinner {
+    animation: none;
+    border-top-color: var(--accent);
+  }
+}
