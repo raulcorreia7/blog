@@ -1,5 +1,5 @@
 <div class="video-wrapper">
-  <video preload="metadata" {{ with .Get "class" }}class="{{ . }}"{{ end }} playsinline>
+  <video controls preload="metadata" {{ with .Get "class" }}class="{{ . }}"{{ end }} playsinline>
     <source src="{{ .Get "src" }}" type="video/mp4">
     Your browser does not support the video tag.
   </video>

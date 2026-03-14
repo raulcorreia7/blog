@@ -384,23 +384,13 @@ details[open] .toc__title::after {
   margin: 1.5rem 0;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: var(--bg-alt);
+  background: #000;
 }
 
 .video-wrapper video {
   display: block;
   width: 100%;
   height: auto;
-}
-
-.video-wrapper .plyr {
-  --plyr-color-main: var(--accent);
-  height: 100%;
-}
-
-.video-wrapper .plyr video {
-  border-radius: 0;
-  background: transparent;
 }
 
 .video-wrapper video {
