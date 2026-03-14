@@ -27,60 +27,42 @@
           wrapper.dataset.videoInit = "true";
 
           var video = wrapper.querySelector("video");
-          var expandBtn = wrapper.querySelector(".video-expand-btn");
-
-          if (video) {
-            var player = new Plyr(video, {
-              controls: [
-                "play-large",
-                "play",
-                "progress",
-                "current-time",
-                "duration",
-                "mute",
-                "volume",
-                "settings",
-                "fullscreen",
-              ],
-              muted: true,
-              hideControls: false,
-              clickToPlay: true,
-              resetOnEnd: false,
-              invertTime: true,
-              toggleInvert: true,
-              ratio: "16:9",
-              settings: ["quality", "speed"],
-              speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] },
-              keyboard: { focused: true, global: false },
-              tooltips: { controls: true, seek: true },
-            });
-
-            player.on("ready", function () {
-              wrapper.classList.add("loaded");
-            });
-
-            wrapper.addEventListener("plyr:init", function () {
-              wrapper.classList.add("loaded");
-            });
-
-            if (expandBtn) {
-              expandBtn.addEventListener("click", function (e) {
-                e.stopPropagation();
-                var currentScale = parseFloat(wrapper.dataset.videoScale) || 1;
-                var newScale = currentScale === 1 ? 1.25 : 1;
-
-                if (newScale === 1) {
-                  wrapper.classList.add("contracting");
-                  wrapper.addEventListener("animationend", function handler() {
-                    wrapper.classList.remove("contracting");
-                    wrapper.removeEventListener("animationend", handler);
-                  });
-                }
-
-                wrapper.dataset.videoScale = newScale;
-              });
-            }
+          if (!video) {
+            return;
           }
+
+          var player = new Plyr(video, {
+            ratio: "16:9",
+            controls: [
+              "play-large",
+              "play",
+              "progress",
+              "current-time",
+              "mute",
+              "volume",
+              "settings",
+              "fullscreen",
+            ],
+            muted: true,
+            autoplay: false,
+            loop: { active: false, showToggle: false },
+            speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] },
+            keyboard: { focused: true, global: false },
+            tooltips: { controls: true, seek: true },
+            loadSprite: true,
+            iconPrefix: "plyr",
+            blankVideo: "",
+            quality: {
+              default: 576,
+              options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240],
+            },
+            disableContextMenu: true,
+            hideControls: true,
+            resetOnEnd: false,
+            invertTime: true,
+            toggleInvert: true,
+            clickToPlay: true,
+          });
         });
       })
       .catch(function (error) {
