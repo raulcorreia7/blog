@@ -572,6 +572,14 @@ gh release create v1.0.0
 
 That works, but it is one of the next places where more automation makes sense.
 
+## Closing Thoughts
+
+I built this because I just wanted to find a theme I like in my editor.
+
+The interesting part was not the picker itself. It was everything needed to make the picker simple: discovering themes, figuring out how they load, identifying variants, and keeping that process maintainable.
+
+The result is a tool that lets me browse, preview, and install themes from inside Neovim without breaking flow, which is all I wanted in the first place.
+
 ## References
 
 **Theme discovery:**
@@ -595,11 +603,3 @@ That works, but it is one of the next places where more automation makes sense.
 
 - [theme-browser.nvim](https://github.com/raulcorreia7/theme-browser.nvim)
 - [theme-browser-monorepo](https://github.com/raulcorreia7/theme-browser-monorepo)
-
-## Closing Thoughts
-
-I built this because I just wanted to find a theme I like in my editor.
-
-The interesting part was not the picker itself. It was everything needed to make the picker simple: discovering themes, figuring out how they load, identifying variants, and keeping that process maintainable.
-
-The result is a tool that lets me browse, preview, and install themes from inside Neovim without breaking flow, which is all I wanted in the first place.
