@@ -11,6 +11,10 @@
       {{ $defaultTheme := lower (.Site.Params.defaultAppearance | default "dark") }}
       <span class="theme-toggle__value" data-theme-value>{{ if eq $defaultTheme "light" }}light{{ else }}dark{{ end }}</span>
     </button>
+    <button type="button" class="vim-toggle" data-vim-toggle aria-label="Enable vim mode">
+      <span class="vim-toggle__prefix">:vim</span>
+      <span class="vim-toggle__value" data-vim-value>[off]</span>
+    </button>
   </div>
   <ul class="nav__menu">
     {{ partial "nav-menu-items.html" . }}
