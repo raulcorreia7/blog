@@ -146,6 +146,79 @@
   content: "]";
 }
 
+.vim-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.28rem 0.58rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--fg-dim);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  opacity: 0.6;
+  transition:
+    color var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    opacity var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.vim-toggle:hover {
+  color: var(--fg);
+  background: var(--surface-accent-14);
+  border-color: var(--accent-dim);
+  opacity: 1;
+}
+
+.vim-toggle:focus-visible {
+  border-color: var(--accent-dim);
+}
+
+.vim-toggle[data-vim-active="true"] {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.vim-toggle__prefix {
+  color: var(--fg-dim);
+  opacity: 0.88;
+}
+
+.vim-toggle__value {
+  display: inline-flex;
+  align-items: center;
+  color: var(--fg-muted);
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.vim-toggle__value::before,
+.vim-toggle__value::after {
+  color: var(--fg-dim);
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.vim-toggle__value::before {
+  content: "[";
+}
+
+.vim-toggle__value::after {
+  content: "]";
+}
+
+.vim-toggle[data-vim-active="true"] .vim-toggle__value {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .nav__menu {
   --nav-menu-gap: 1.15rem;
   display: flex;
@@ -230,6 +303,10 @@
 
   .theme-toggle__value::after {
     content: "";
+  }
+
+  .vim-toggle {
+    display: none;
   }
 
   .nav__menu {
