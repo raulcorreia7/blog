@@ -1,0 +1,429 @@
+.vim-activation-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at center, var(--accent-glow-weak) 0%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.vim-activation-glow--active {
+  opacity: 1;
+}
+
+.vim-activation-glow--fade {
+  opacity: 0;
+}
+
+.vim-activation-ripple {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  z-index: 201;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.vim-activation-ripple--active {
+  animation: vim-ripple-expand 600ms ease-out forwards;
+}
+
+.vim-activation-ripple--reverse {
+  animation: vim-ripple-collapse 400ms ease-in forwards;
+}
+
+@keyframes vim-ripple-expand {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    width: 200vmax;
+    height: 200vmax;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes vim-ripple-collapse {
+  0% {
+    width: 200vmax;
+    height: 200vmax;
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+.vim-deactivation-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at center, var(--accent-glow-weak) 0%, transparent 70%);
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.vim-deactivation-glow--active {
+  opacity: 1;
+}
+
+.vim-deactivation-glow--fade {
+  opacity: 0;
+}
+
+.vim-toast {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  z-index: 210;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius-sm);
+  background: var(--bg-alt);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+  pointer-events: none;
+}
+
+.vim-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.vim-badge {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-pill);
+  background: var(--bg-alt);
+  color: var(--fg-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease,
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.vim-badge--visible {
+  opacity: 0.85;
+  transform: translateY(0);
+}
+
+.vim-badge:hover {
+  opacity: 1;
+  border-color: var(--accent-dim);
+  background: var(--surface-accent-14);
+}
+
+.vim-badge__mode {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.vim-badge__action {
+  padding: 0.1rem 0.3rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--fg-dim);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    background var(--transition);
+}
+
+.vim-badge__action:hover {
+  color: var(--accent);
+  background: var(--surface-accent-10);
+}
+
+.vim-search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 3rem;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 150ms ease,
+    visibility 150ms ease;
+}
+
+.vim-search-overlay--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.vim-search-overlay__inner {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius-md);
+  background: var(--bg-alt);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+  transition: transform 150ms ease;
+}
+
+.vim-search-overlay--visible .vim-search-overlay__inner {
+  transform: translateY(0);
+}
+
+.vim-search-overlay__prefix {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.vim-search-overlay__input {
+  width: 280px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.vim-search-overlay__input::placeholder {
+  color: var(--fg-dim);
+}
+
+.vim-search-overlay__count {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.vim-search-overlay__hint {
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.vim-match-wrapper {
+  display: contents;
+}
+
+.vim-match {
+  padding: 0.05rem 0.15rem;
+  border-radius: 2px;
+  background: var(--surface-accent-14);
+  color: inherit;
+  box-shadow: 0 0 0 1px var(--accent-dim);
+  transition:
+    background 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.vim-match--current {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow:
+    0 0 0 2px var(--accent),
+    0 0 0.4rem var(--accent-shadow-soft);
+}
+
+.vim-help-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 160;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 200ms ease,
+    visibility 200ms ease;
+}
+
+.vim-help-overlay--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.vim-help-overlay__inner {
+  max-width: 340px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-md);
+  background: var(--bg-alt);
+  box-shadow: 0 0.7rem 2rem rgba(0, 0, 0, 0.35);
+  transform: scale(0.95);
+  transition: transform 200ms ease;
+}
+
+.vim-help-overlay--visible .vim-help-overlay__inner {
+  transform: scale(1);
+}
+
+.vim-help-overlay__title {
+  margin: 0 0 1rem;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vim-help-overlay__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vim-help-overlay__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+}
+
+.vim-help-overlay__key {
+  display: inline-block;
+  min-width: 2rem;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.vim-help-overlay__action {
+  color: var(--fg-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.vim-help-overlay__hint {
+  margin: 1rem 0 0;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.vim-link-hint {
+  position: absolute;
+  z-index: 180;
+  padding: 0.15rem 0.35rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--bg-alt);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  pointer-events: none;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.vim-link-hint--match {
+  background: var(--accent);
+  color: var(--bg);
+  transform: scale(1.1);
+}
+
+.vim-link-hint--no-match {
+  opacity: 0.3;
+}
+
+.vim-link-hint-target {
+  outline: 2px solid var(--accent-dim);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vim-activation-glow,
+  .vim-activation-ripple,
+  .vim-deactivation-glow,
+  .vim-toast,
+  .vim-badge,
+  .vim-search-overlay,
+  .vim-search-overlay__inner,
+  .vim-help-overlay,
+  .vim-help-overlay__inner,
+  .vim-match,
+  .vim-link-hint {
+    transition: none;
+    animation: none;
+  }
+
+  .vim-activation-ripple--active,
+  .vim-activation-ripple--reverse {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .vim-badge {
+    display: none;
+  }
+
+  .vim-search-overlay {
+    padding-top: 2rem;
+  }
+
+  .vim-search-overlay__inner {
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .vim-search-overlay__input {
+    width: 200px;
+    font-size: 0.85rem;
+  }
+}
