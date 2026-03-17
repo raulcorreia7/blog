@@ -29,6 +29,17 @@ This blog uses a small plugin runtime for page-level tools.
   - initializes `.asciinema-embed[data-cast-url]`
   - reads shortcode options from data attributes
 
+### Vim Search
+
+- Runtime: `static/js/vim-search.js`
+- Styles: `assets/css/vim-search.css`
+- Activation: Type `:vim` anywhere on the page
+- Behavior:
+  - DOM-based text search across all page content
+  - vim-style key bindings: `/` search, `n`/`N` navigate, `j`/`k` scroll, `?` help
+  - subtle activation animation with corner badge indicator
+  - persists activation state per-session (`sessionStorage`)
+
 ## Theme Runtime
 
 Theme handling is intentionally separate from plugin runtime:
