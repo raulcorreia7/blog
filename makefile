@@ -30,7 +30,7 @@ clean:
 watch: clean
 	@echo "Checking for existing Hugo server on port $(PORT)..."
 	@lsof -ti :$(PORT) | xargs kill -9 2>/dev/null || true
-	$(HUGO) server -w $(DEV_FLAGS) --port $(PORT) --bind 127.0.0.1
+	$(HUGO) server -w $(DEV_FLAGS) --port $(PORT) --bind 0.0.0.0
 
 stop:
 	@echo "Stopping Hugo server on port $(PORT)..."
@@ -40,7 +40,7 @@ dev:
 	@echo "Checking for existing Hugo server on port $(PORT)..."
 	@lsof -ti :$(PORT) | xargs kill -9 2>/dev/null || true
 	@echo "Starting Hugo dev server on http://localhost:$(PORT)"
-	$(HUGO) server $(DEV_FLAGS) --port $(PORT) --bind 127.0.0.1 &
+	$(HUGO) server $(DEV_FLAGS) --port $(PORT) --bind 0.0.0.0 &
 	@sleep 2
 	@echo "Hugo server running at http://localhost:$(PORT)"
 	@echo "Use 'make stop' to stop the server"
