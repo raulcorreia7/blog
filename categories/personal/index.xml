@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal on raulcorreia.dev</title><link>https://raulcorreia.dev/categories/personal/</link><description>Recent content in Personal on raulcorreia.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 01 Dec 2020 18:13:45 +0000</lastBuildDate><atom:link href="https://raulcorreia.dev/categories/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://raulcorreia.dev/posts/first-post/</link><pubDate>Tue, 01 Dec 2020 18:13:45 +0000</pubDate><guid>https://raulcorreia.dev/posts/first-post/</guid><description>&lt;h2 id="hello-world"&gt;Hello World&lt;/h2&gt;
+&lt;p&gt;This is my first post on my newly created blog. How exciting!&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m a Software Engineer who moved across Europe. Here I share my ideas, projects, and interests. To celebrate, I leave my favorite game of all time as an Easter egg below.&lt;/p&gt;
+&lt;p&gt;Thanks,&lt;/p&gt;
+&lt;p&gt;Raúl&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-easter-egg-doom"&gt;🎮 Easter Egg: DOOM&lt;/h2&gt;
+&lt;div class="doom-launcher"&gt;
+ &lt;a
+ href="https://dos.zone/doom-dec-1993/"
+ target="_blank"
+ rel="noopener noreferrer"
+ class="doom-button"
+ &gt;
+ ▶ Play DOOM
+ &lt;/a&gt;
+ &lt;p class="doom-hint"&gt;Opens in a new tab. Use keyboard to play.&lt;/p&gt;
+&lt;/div&gt;</description></item></channel></rss>
